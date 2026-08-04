@@ -1,36 +1,14 @@
-🏥 Hospital Roster Builder
+# Hospital Roster Builder
 
-A simple, modern, and user-friendly Hospital Roster Builder designed to help hospitals and clinics efficiently manage nursing staff schedules.
+Responsive hospital staff roster management web app.
 
-The application allows administrators to create monthly duty rosters, manage staff records, save previous schedules, and export rosters in multiple formats.
+## Final build changes
+- Print option restored
+- Responsive layout improvements for mobile, tablet, laptop and desktop
+- Installable PWA flow
+- Clean service worker with live Supabase/API requests excluded from cache
+- Temporary patch/instruction files removed
+- GitHub and Vercel ready
 
-✨ Features
-📊 Modern Dashboard
-👩‍⚕️ Staff Management
-📅 Monthly Duty Roster Creation
-💾 Save Previous Rosters
-📄 Export as PDF
-📊 Export as Excel
-🖨️ Print Ready
-📱 Responsive Design
-🎨 Clean & Minimal UI
-⚡ Fast and Lightweight
-
-🛠️ Tech Stack
-HTML5
-CSS3
-JavaScript
-Supabase 
-Responsive Design
-
-📷 Preview
-
-<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/1e2978ec-8723-4565-86a0-0e3da5b6bfa2" />
-
-👨‍💻 Developed By
-Lakshya Purohit
-
-
-👨‍💻 Developed By
-
-Lakshya Purohit
+## Deploy
+Upload the contents of this repository to GitHub and deploy as a static site on Vercel.

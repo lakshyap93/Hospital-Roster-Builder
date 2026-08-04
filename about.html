@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <style>
+    html:not(.auth-ready) body {
+      visibility: hidden
+    }
+  </style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>About & Support</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="style.css?v=aboutpageupdate2">
+  <link rel="manifest" href="/manifest.webmanifest">
+  <meta name="theme-color" content="#047857">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="SAIMS Roster">
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="auth-guard.js?v=20260710-1"></script>
+  <script>
+    if ("serviceWorker" in navigator) {
+      window.addEventListener("load", () => navigator.serviceWorker.getRegistrations().then(rs => rs.forEach(r => r.update())));
+    }
+  </script>
+  <link rel="icon" type="image/png" href="./icon-192.png?v=2">
+  <link rel="apple-touch-icon" href="./icon-192.png?v=2">
+</head>
+
+<body data-page="about">
+  <header class="topbar multi-topbar"><a class="brand-link" href="index.html"><span class="app-brand"><img src="app-logo.svg?v=20260710-1" alt=""><span>Hospital Roster Builder</span></span></a><nav class="main-nav"><a href="index.html">Dashboard</a><a href="staff.html">Staff</a><a href="roster.html">Create Roster</a><a href="history.html">Previous Rosters</a><a href="about.html" class="active">About</a><button type="button" class="nav-logout" onclick="logoutRosterUser()">Logout</button></nav></header>
+
+  <main class="container multi-page-container">
+    <section class="card about-hero">
+      <h1>About Hospital Roster Builder</h1>
+      <p class="muted font-subheading">A modern, secure, and professional staff scheduling solution.</p>
+
+      <div class="about-grid">
+        <div class="about-card">
+          <h3>✨ System Features</h3>
+          <ul>
+            <li><strong>Automated & Manual Shift Scheduling</strong>: Manage shifts (Morning, Evening, Night, Off) for
+              hospital staff efficiently.</li>
+            <li><strong>Dynamic Adaptive Layouts</strong>: Automatically adjusts table padding and font sizes based on
+              active staff counts.</li>
+            <li><strong>Interactive Creators</strong>: Smooth zoom controls to magnify or shrink the roster worksheet
+              screen layout.</li>
+            <li><strong>Supabase Data Sync</strong>: Synchronizes and backs up monthly schedules to cloud databases
+              securely.</li>
+            <li><strong>Export Formats</strong>: Generate landscape PDFs, download Excel spreadsheets, or print clean
+              physical sheets.</li>
+          </ul>
+        </div>
+
+        <div class="about-card help-card">
+          <h3>📞 Administrator Support</h3>
+          <p>If you need login credentials, system help, or customization support, reach out directly:</p>
+          <div class="admin-profile">
+            <strong>Lakshya Purohit</strong>
+            <span class="designation">System Developer & Administrator</span>
+          </div>
+          <div class="admin-contact-icons">
+            <a href="mailto:lakshyap93@gmail.com" class="contact-icon email" title="Send Email">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                <polyline points="22,6 12,13 2,6"></polyline>
+              </svg>
+            </a>
+            <a href="tel:8899227054" class="contact-icon call" title="Call Administrator">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path
+                  d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z">
+                </path>
+              </svg>
+            </a>
+            <a href="https://wa.me/918899227054" target="_blank" rel="noopener noreferrer" class="contact-icon whatsapp"
+              title="Chat on WhatsApp">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                <path
+                  d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.513 2.262 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.5-5.739-1.45L0 24zm6.59-4.846c1.6.95 3.188 1.449 4.825 1.451 5.436 0 9.86-4.42 9.864-9.852.002-2.63-1.023-5.101-2.887-6.97C16.58 1.957 14.1 1.028 11.487 1.028 6.05 1.028 1.625 5.45 1.62 10.885c-.001 1.703.447 3.367 1.299 4.834l-.454 1.658 1.7.447 1.636-.453.846.502zm12.306-6.685c-.244-.122-1.442-.712-1.666-.794-.223-.081-.385-.122-.547.122-.162.244-.63.794-.771.956-.142.162-.284.183-.528.061-.243-.122-1.028-.379-1.958-1.208-.724-.646-1.213-1.444-1.355-1.688-.142-.243-.015-.375.107-.497.11-.11.244-.284.365-.426.122-.142.163-.244.244-.406.081-.162.041-.305-.02-.426-.062-.122-.547-1.32-.75-1.81-.197-.474-.396-.41-.547-.417-.14-.007-.302-.008-.464-.008-.162 0-.426.061-.649.305-.224.244-.853.834-.853 2.031 0 1.197.873 2.35 1.015 2.533.142.183 1.72 2.624 4.167 3.678.583.25 1.037.4 1.392.513.585.186 1.117.16 1.538.097.469-.071 1.442-.589 1.646-1.157.203-.569.203-1.057.142-1.157-.061-.101-.223-.162-.467-.284z" />
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+    <footer>© 2026 • Developed and Designed By <strong>Lakshya Purohit</strong></footer>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="script.js?v=passkey2"></script>
+
+  <script src="./pwa-install.js"></script>
+</body>
+
+</html>
