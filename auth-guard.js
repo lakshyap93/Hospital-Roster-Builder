@@ -1,3 +1,0 @@
-const guardClient=window.supabase.createClient("https://bumjwrmwzwzjqdejnqca.supabase.co","sb_publishable_vgUSK9MQncLu_qLd_LEPMA_XKW9fVRJ");
-(async()=>{const r=await guardClient.auth.getSession();if(r.error||!r.data.session){const p=location.pathname.split("/").pop()||"index.html";location.replace("login.html?next="+encodeURIComponent(p));return}document.documentElement.classList.add("auth-ready")})();
-async function logoutRosterUser(){await guardClient.auth.signOut();location.replace("login.html")}window.logoutRosterUser=logoutRosterUser;
