@@ -1,0 +1,4150 @@
+:root {
+  --primary: #047857;          /* Rich Emerald Green */
+  --primary-dark: #064e3b;     /* Deep Forest Green */
+  --primary-hover: #059669;    /* Bright Emerald Hover */
+  --primary-light: #ecfdf5;    /* Light Sage/Mint Tint */
+  --accent: #d97706;           /* Amber Gold */
+  --accent-hover: #b45309;     /* Darker Amber Hover */
+  --accent-light: #fef3c7;     /* Soft Amber Glow */
+  --bg: #f4f8f6;               /* Light Sage Gray Background */
+  --text: #0f172a;             /* Slate 900 */
+  --text-dark: #062e24;        /* Deep Forest Green Text */
+  --text-muted: #64748b;       /* Slate 500 */
+  --border: #ccdcd6;           /* Sage Border */
+  --border-light: #e2e8f0;     /* Slate 200 */
+  --danger: #b42318;           /* Alert Red */
+  --danger-hover: #991f1f;
+}
+
+* {
+  box-sizing: border-box
+}
+
+body, input, select, textarea, button {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif !important;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+}
+
+header {
+  background: #fff;
+  border-bottom: 1px solid var(--border-light);
+  padding: 14px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between
+}
+
+header h1 {
+  font-size: 20px;
+  margin: 0;
+  color: var(--primary-dark)
+}
+
+header small {
+  color: #6d7885
+}
+
+main {
+  max-width: 1500px;
+  margin: auto;
+  padding: 18px
+}
+
+.card {
+  background: #fff;
+  border: 1px solid var(--border-light);
+  border-radius: 16px;
+  padding: 24px;
+  margin-bottom: 20px;
+  box-shadow: 0 10px 30px rgba(6, 78, 59, 0.02), 0 1px 3px rgba(0, 0, 0, 0.01);
+}
+
+.controls {
+  padding: 12px 18px 6px 18px !important;
+  margin-bottom: 12px !important;
+}
+
+.row {
+  display: flex;
+  gap: 10px;
+  align-items: end;
+  flex-wrap: wrap
+}
+
+label {
+  display: grid;
+  gap: 5px;
+  font-size: 13px;
+  font-weight: 700
+}
+
+input,
+select {
+  padding: 11px 14px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  min-width: 150px;
+  background: #fff;
+  font-size: 14px;
+  transition: all 0.2s ease;
+}
+
+input:focus,
+select:focus {
+  border-color: var(--primary) !important;
+  box-shadow: 0 0 0 3px rgba(4, 120, 87, 0.12) !important;
+  outline: none;
+}
+
+button {
+  border: 0;
+  border-radius: 12px !important;
+  padding: 11px 18px !important;
+  background: var(--primary);
+  color: #fff;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(4, 120, 87, 0.15) !important;
+  transition: all 0.25s cubic-bezier(0.25, 1, 0.5, 1) !important;
+}
+
+button:hover {
+  background: var(--primary-hover) !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 6px 18px rgba(4, 120, 87, 0.25) !important;
+}
+
+button:active {
+  transform: translateY(1px) !important;
+}
+
+.secondary {
+  background: #fff !important;
+  color: var(--text) !important;
+  border: 1px solid var(--border) !important;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.03) !important;
+}
+
+.secondary:hover {
+  background: var(--primary-light) !important;
+  border-color: var(--primary) !important;
+  color: var(--primary-dark) !important;
+  box-shadow: 0 6px 14px rgba(4, 120, 87, 0.08) !important;
+}
+
+.section-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center
+}
+
+.section-head h2 {
+  margin: 0 0 12px
+}
+
+.muted {
+  color: #788391
+}
+
+.table-scroll {
+  overflow: auto
+}
+
+.compact {
+  max-height: 280px
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse
+}
+
+th,
+td {
+  border: 1px solid #d5dbe2;
+  padding: 7px;
+  text-align: center;
+  white-space: nowrap
+}
+
+th {
+  background: #f1f3f5
+}
+
+.legend {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap
+}
+
+.chip {
+  padding: 6px 9px;
+  border: 1px solid #d7dce2;
+  border-radius: 7px;
+  background: #fafafa
+}
+
+.toolbar {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 14px
+}
+
+.hospital-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  text-align: center;
+  padding: 8px 0 14px
+}
+
+.hospital-header img {
+  width: 88px;
+  height: 88px;
+  object-fit: contain
+}
+
+.hospital-header h2 {
+  margin: 0;
+  font-size: 21px;
+  text-transform: uppercase
+}
+
+.hospital-header h3 {
+  margin: 6px 0 2px;
+  font-size: 17px
+}
+
+.hospital-header p {
+  margin: 0
+}
+
+.roster-scroll {
+  max-height: 78vh !important;
+}
+
+.roster th {
+  font-size: 11px;
+  background: #f5f5f5;
+  position: sticky;
+  top: 0;
+  z-index: 2
+}
+
+.roster td {
+  font-size: 11px;
+  padding: 4px
+}
+
+.roster .name {
+  min-width: 150px;
+  text-align: left
+}
+
+.roster .idcol {
+  min-width: 75px
+}
+
+.roster .date {
+  min-width: 37px
+}
+
+.roster input {
+  min-width: 0;
+  width: 34px;
+  padding: 4px 1px;
+  text-align: center;
+  border: 0;
+  background: transparent;
+  font-size: 11px;
+  font-weight: 800;
+  text-transform: uppercase
+}
+
+.roster tbody tr:focus-within td,
+.roster tbody tr:focus-within input,
+.roster tbody tr:hover td,
+.roster tbody tr:hover input {
+  background-color: var(--primary-light) !important;
+}
+
+.roster tbody tr:focus-within input:focus {
+  background-color: #fff !important;
+}
+
+.sun {
+  color: #b42318;
+  background: #fff1f0 !important
+}
+
+.print-legend {
+  margin-top: 10px;
+  font-size: 11px
+}
+
+.danger {
+  background: #b42318
+}
+
+.empty-row td {
+  padding: 24px;
+  color: #778391
+}
+
+footer {
+  text-align: center;
+  padding: 8px 16px;
+  background: #02120e;
+  border-top: 1px solid rgba(255,255,255,0.08);
+  color: #94a3b8;
+  font-size: 12px;
+  width: 100%;
+  box-sizing: border-box;
+  flex-shrink: 0;
+}
+
+@media(max-width:700px) {
+  main {
+    padding: 10px
+  }
+
+  .hospital-header {
+    align-items: flex-start
+  }
+
+  .hospital-header img {
+    width: 65px;
+    height: 65px
+  }
+
+  .hospital-header h2 {
+    font-size: 15px
+  }
+}
+
+@page {
+  size: A3 landscape;
+  margin: 7mm
+}
+
+@media print {
+  body {
+    background: #fff
+  }
+
+  .no-print,
+  header,
+  footer,
+  main>.card:not(.roster-card) {
+    display: none !important
+  }
+
+  main {
+    max-width: none;
+    padding: 0
+  }
+
+  .card,
+  .roster-card {
+    border: 0;
+    margin: 0;
+    padding: 0
+  }
+
+  .roster-scroll {
+    overflow: visible;
+    max-height: none
+  }
+
+  .hospital-header img {
+    width: 20mm;
+    height: 20mm
+  }
+
+  .hospital-header h2 {
+    font-size: 14pt
+  }
+
+  .hospital-header h3 {
+    font-size: 11pt
+  }
+
+  .roster {
+    table-layout: fixed;
+    width: 100%
+  }
+
+  .roster th,
+  .roster td {
+    font-size: 6pt;
+    padding: 1.2mm .4mm
+  }
+
+  .roster .name {
+    width: 30mm;
+    min-width: 0
+  }
+
+  .roster .idcol {
+    width: 15mm;
+    min-width: 0
+  }
+
+  .roster .date {
+    width: auto;
+    min-width: 0
+  }
+
+  .roster input {
+    font-size: 6pt;
+    width: 100%;
+    padding: 0
+  }
+
+  .print-legend {
+    font-size: 7pt
+  }
+}
+
+.signature-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 40px;
+  margin-top: 38px;
+  padding: 0 18px 8px
+}
+
+.signature-box {
+  width: 250px;
+  text-align: center;
+  font-size: 12px
+}
+
+.signature-line {
+  border-top: 1px solid #222;
+  margin-bottom: 7px
+}
+
+@media(max-width:700px) {
+  .signature-row {
+    gap: 18px;
+    padding: 0
+  }
+
+  .signature-box {
+    width: 46%;
+    font-size: 12px
+  }
+}
+
+@media print {
+  .signature-row {
+    margin-top: 12mm;
+    padding: 0 8mm
+  }
+
+  .signature-box {
+    width: 55mm;
+    font-size: 8pt
+  }
+
+  .signature-line {
+    margin-bottom: 2mm
+  }
+}
+
+/* Adaptive roster readability */
+.roster .name {
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 800;
+  font-size: 13px;
+  letter-spacing: .15px
+}
+
+.roster tbody td:nth-child(3) {
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 800;
+  font-size: 12px
+}
+
+.roster input {
+  font-weight: 800;
+  font-size: 12px
+}
+
+.roster th {
+  font-weight: 800
+}
+
+@media print {
+  .roster tbody td {
+    height: var(--print-row-height, 7mm) !important;
+    padding: var(--print-cell-padding, 1mm) .35mm !important
+  }
+
+  .roster th {
+    font-size: var(--print-header-font, 7pt) !important;
+    font-weight: 800 !important
+  }
+
+  .roster td,
+  .roster input {
+    font-size: var(--print-duty-font, 8pt) !important;
+    font-weight: 800 !important
+  }
+
+  .roster td.name {
+    font-size: var(--print-name-font, 9.5pt) !important;
+    font-weight: 800 !important
+  }
+
+  .roster tbody td:nth-child(3) {
+    font-size: var(--print-id-font, 9pt) !important;
+    font-weight: 800 !important
+  }
+}
+
+/* Compact Duty Codes */
+.duty-code-card {
+  padding: 6px 14px !important;
+  margin-bottom: 12px !important;
+}
+
+.duty-code-head h2 {
+  font-size: 14px !important;
+  margin: 0 !important;
+}
+
+.compact-btn {
+  padding: 4px 8px !important;
+  font-size: 11.5px !important;
+}
+
+.compact-legend {
+  gap: 6px !important;
+  margin-top: 4px !important;
+}
+
+.compact-legend .chip {
+  padding: 2px 6px 2px 8px !important;
+  font-size: 11px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 5px !important;
+}
+
+.code-delete {
+  background: #fff0f0;
+  color: #b42318;
+  border: 1px solid #f0b7b2;
+  border-radius: 5px;
+  padding: 2px 5px;
+  font-size: 10px;
+  line-height: 1;
+  cursor: pointer
+}
+
+.code-delete:hover {
+  background: #ffe2e0
+}
+
+html,
+body {
+  min-height: 100%
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column
+}
+
+.multi-topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  padding: 12px 24px;
+  background: #fff;
+  border-bottom: 1px solid var(--border-light);
+  position: sticky;
+  top: 0;
+  z-index: 20
+}
+
+.brand-link {
+  font-weight: 800;
+  color: var(--primary);
+  text-decoration: none;
+  font-size: 18px
+}
+
+.main-nav {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap
+}
+
+.main-nav a {
+  color: #25303d;
+  text-decoration: none;
+  font-weight: 700;
+  padding: 8px 10px;
+  border-radius: 8px
+}
+
+.multi-page-container {
+  padding-top: 22px;
+  flex: 1 0 auto;
+  width: 100%
+}
+
+body > footer {
+  margin-top: auto;
+  width: 100%;
+  flex-shrink: 0;
+}
+
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+  margin-top: 24px
+}
+
+.dash-card {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 28px 24px;
+  border: 1px solid var(--border-light);
+  border-radius: 18px;
+  text-decoration: none;
+  color: var(--text);
+  background: #fff;
+  box-shadow: 0 4px 12px rgba(6, 78, 59, 0.01);
+}
+
+.dash-card strong {
+  font-size: 19px;
+  color: var(--primary)
+}
+
+.dash-card span {
+  color: var(--text-muted);
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+@media(max-width:760px) {
+  /* Global Layout */
+  body { overflow-x: hidden; }
+  main { padding: 10px; }
+  .card { padding: 12px; margin-bottom: 12px; border-radius: 8px; }
+  .dashboard-grid { grid-template-columns: 1fr; gap: 10px; }
+  h1 { font-size: 22px; }
+  h2 { font-size: 18px; }
+
+  /* Forms & Controls - mobile layout */
+  .controls .row { flex-direction: column; align-items: stretch; gap: 8px; }
+  .controls input, .controls select, .controls button { width: 100%; box-sizing: border-box; }
+
+  /* Roster Table: horizontal scroll with sticky name column */
+  .table-scroll, .roster-scroll {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  .roster th:first-child, .roster td.name {
+    position: sticky;
+    left: 0;
+    z-index: 3;
+    background: #ffffff;
+    box-shadow: 2px 0 4px rgba(0,0,0,0.05);
+  }
+  .roster th:first-child { z-index: 4; background: #f1f3f5; }
+  .roster input { min-width: 38px; width: 38px; padding: 6px 2px; }
+
+  /* Toolbar button wrapping */
+  .toolbar { flex-wrap: wrap; gap: 6px; }
+  .toolbar button { font-size: 12.5px; padding: 7px 10px; flex-shrink: 0; }
+  
+  /* Hospital Header */
+  .hospital-header { flex-direction: column; text-align: center; padding: 8px 0; gap: 6px; }
+  .hospital-header img { width: 50px; height: 50px; }
+  .hospital-header h2 { font-size: 15px; }
+
+  /* Dashboard cards */
+  .dash-card { padding: 16px 14px; }
+
+  /* Section head */
+  .section-head { flex-wrap: wrap; gap: 8px; }
+
+  /* Duty code card - hidden on mobile */
+  .duty-code-card { display: none !important; }
+
+  /* Signature row on mobile */
+  .signature-row { flex-direction: column; gap: 16px; }
+}
+
+@media print {
+  body {
+    display: block
+  }
+
+  .app-header,
+  .multi-topbar,
+  .sidebar-drawer,
+  .sidebar-backdrop {
+    display: none !important
+  }
+}
+
+
+
+/* FINAL EXPORT TYPOGRAPHY FIX
+   Applies to browser Print. PDF/Share PDF are patched in script.js. */
+@media print {
+
+  .roster td.name,
+  .roster tbody td:nth-child(2) {
+    font-weight: 800 !important;
+    text-align: center !important;
+    vertical-align: middle !important;
+  }
+
+  .roster td.idcol,
+  .roster tbody td:nth-child(3) {
+    font-weight: 800 !important;
+    text-align: center !important;
+    vertical-align: middle !important;
+  }
+}
+
+
+/* FINAL NAME/UNID OVERLAP FIX */
+@media print {
+  .roster tbody td:nth-child(2) {
+    font-weight: 800 !important;
+    text-align: center !important;
+    vertical-align: middle !important;
+    white-space: normal !important;
+    overflow: hidden !important;
+    overflow-wrap: anywhere !important;
+    word-break: normal !important;
+    line-height: 1.15 !important;
+    padding-left: 3px !important;
+    padding-right: 3px !important;
+  }
+
+  .roster tbody td:nth-child(3) {
+    font-weight: 800 !important;
+    text-align: center !important;
+    vertical-align: middle !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    padding-left: 2px !important;
+    padding-right: 2px !important;
+  }
+}
+
+
+/* FINAL STAFF FULL-PAGE LIST FIX
+   Show all staff rows; use the page scrollbar instead of an inner table scrollbar. */
+body[data-page="staff"] .table-scroll,
+body[data-page="staff"] .staff-table-wrap,
+body[data-page="staff"] .staff-list-wrap,
+body[data-page="staff"] .staff-table-container {
+  max-height: none !important;
+  height: auto !important;
+  overflow-y: visible !important;
+}
+
+body[data-page="staff"] main,
+body[data-page="staff"] .page,
+body[data-page="staff"] .container,
+body[data-page="staff"] .card {
+  min-height: 0 !important;
+}
+
+body[data-page="staff"] table {
+  height: auto !important;
+}
+
+/* Fallback for the current markup if the page marker is on <html> or absent. */
+.staff-page .table-scroll,
+.staff-page .staff-table-wrap,
+.staff-page .staff-list-wrap,
+.staff-page .staff-table-container {
+  max-height: none !important;
+  height: auto !important;
+  overflow-y: visible !important;
+}
+
+/* FINAL DARK PRINT + LARGE STAFF NAMES */
+@media print {
+
+  body,
+  main,
+  .page,
+  .container,
+  .card,
+  .roster-card {
+    color: #000 !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  .roster,
+  .roster table,
+  #rosterTable {
+    border-collapse: collapse !important;
+    color: #000 !important;
+  }
+
+  .roster th,
+  .roster td,
+  #rosterTable th,
+  #rosterTable td {
+    color: #000 !important;
+    border: 1.4px solid #111 !important;
+    opacity: 1 !important;
+  }
+
+  .roster thead th,
+  #rosterTable thead th {
+    background: #d8d8d8 !important;
+    color: #000 !important;
+    font-weight: 900 !important;
+  }
+
+  .roster tbody td,
+  #rosterTable tbody td {
+    color: #000 !important;
+    font-weight: 700 !important;
+  }
+
+  .roster tbody td:nth-child(2),
+  #rosterTable tbody td:nth-child(2),
+  .roster-staff-name {
+    color: #000 !important;
+    font-size: 13pt !important;
+    font-weight: 900 !important;
+    text-align: center !important;
+    line-height: 1.1 !important;
+  }
+
+  .roster tbody td:nth-child(3),
+  #rosterTable tbody td:nth-child(3) {
+    color: #000 !important;
+    font-size: 10.5pt !important;
+    font-weight: 900 !important;
+    text-align: center !important;
+  }
+
+  .roster input,
+  #rosterTable input {
+    color: #000 !important;
+    font-weight: 800 !important;
+    opacity: 1 !important;
+  }
+}
+
+
+/* Wider staff-name column */
+.roster th:nth-child(2),
+.roster td:nth-child(2),
+#rosterTable th:nth-child(2),
+#rosterTable td:nth-child(2) {
+  min-width: 180px !important;
+  width: 180px !important;
+  white-space: normal !important;
+  word-break: normal !important;
+  overflow-wrap: anywhere !important;
+}
+
+@media print {
+
+  .roster th:nth-child(2),
+  .roster td:nth-child(2),
+  #rosterTable th:nth-child(2),
+  #rosterTable td:nth-child(2) {
+    min-width: 42mm !important;
+    width: 42mm !important;
+  }
+}
+
+
+/* Bigger duty codes + clearer date/day headers */
+.roster tbody td:nth-child(n+4),
+#rosterTable tbody td:nth-child(n+4) {
+  font-size: 15px !important;
+  font-weight: 800 !important;
+  color: #000 !important;
+}
+
+.roster tbody td:nth-child(n+4) input,
+#rosterTable tbody td:nth-child(n+4) input {
+  font-size: 15px !important;
+  font-weight: 800 !important;
+  color: #000 !important;
+  text-align: center !important;
+}
+
+.roster thead th:nth-child(n+4),
+#rosterTable thead th:nth-child(n+4) {
+  font-size: 12px !important;
+  font-weight: 900 !important;
+  color: #000 !important;
+  line-height: 1.15 !important;
+}
+
+@media print {
+
+  .roster tbody td:nth-child(n+4),
+  #rosterTable tbody td:nth-child(n+4),
+  .roster tbody td:nth-child(n+4) input,
+  #rosterTable tbody td:nth-child(n+4) input {
+    font-size: 12.5pt !important;
+    font-weight: 900 !important;
+    color: #000 !important;
+  }
+
+  .roster thead th:nth-child(n+4),
+  #rosterTable thead th:nth-child(n+4) {
+    font-size: 11.5pt !important;
+    font-weight: 900 !important;
+    color: #000 !important;
+  }
+}
+
+
+/* FINAL PRINT LAYOUT: one-line large staff names like downloaded PDF */
+@media print {
+
+  /* Staff name column */
+  .roster th:nth-child(2),
+  .roster td:nth-child(2),
+  #rosterTable th:nth-child(2),
+  #rosterTable td:nth-child(2) {
+    width: 46mm !important;
+    min-width: 46mm !important;
+    max-width: 46mm !important;
+    white-space: nowrap !important;
+    word-break: keep-all !important;
+    overflow-wrap: normal !important;
+    overflow: hidden !important;
+    text-overflow: clip !important;
+    font-size: 14pt !important;
+    font-weight: 900 !important;
+    line-height: 1.15 !important;
+    text-align: center !important;
+    color: #000 !important;
+  }
+
+  /* Keep generated staff-name wrapper on one line too */
+  .roster-staff-name {
+    white-space: nowrap !important;
+    word-break: keep-all !important;
+    overflow-wrap: normal !important;
+    font-size: 14pt !important;
+    font-weight: 900 !important;
+    line-height: 1.15 !important;
+  }
+
+  /* Slightly compact serial + ID so the wider name column can fit */
+  .roster th:nth-child(1),
+  .roster td:nth-child(1),
+  #rosterTable th:nth-child(1),
+  #rosterTable td:nth-child(1) {
+    width: 8mm !important;
+    min-width: 8mm !important;
+  }
+
+  .roster th:nth-child(3),
+  .roster td:nth-child(3),
+  #rosterTable th:nth-child(3),
+  #rosterTable td:nth-child(3) {
+    width: 17mm !important;
+    min-width: 17mm !important;
+    font-size: 11.5pt !important;
+    font-weight: 900 !important;
+  }
+
+  /* Date/day columns remain readable but compact enough for 31 days */
+  .roster th:nth-child(n+4),
+  .roster td:nth-child(n+4),
+  #rosterTable th:nth-child(n+4),
+  #rosterTable td:nth-child(n+4) {
+    min-width: 7.2mm !important;
+    width: 7.2mm !important;
+  }
+}
+
+
+/* FINAL PRINT FIT: move hospital header up + keep signatures on page 1 */
+@media print {
+  @page {
+    size: A4 landscape;
+    margin: 4mm 5mm 4mm 5mm;
+  }
+
+  /* Remove excess top space around printable roster */
+  body {
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  .roster-card,
+  .roster,
+  #rosterPrintArea,
+  #rosterArea {
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+  }
+
+  /* Hospital logo/name/title block higher and tighter */
+  .roster-header,
+  .hospital-header,
+  .print-header {
+    margin-top: -3mm !important;
+    margin-bottom: 1.5mm !important;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+    line-height: 1.05 !important;
+  }
+
+  .roster-header img,
+  .hospital-header img,
+  .print-header img {
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+  }
+
+  .roster-header h1,
+  .roster-header h2,
+  .roster-header h3,
+  .hospital-header h1,
+  .hospital-header h2,
+  .hospital-header h3 {
+    margin-top: 0 !important;
+    margin-bottom: .5mm !important;
+    line-height: 1.05 !important;
+  }
+
+  /* Slightly tighten table vertically without shrinking text */
+  .roster th,
+  .roster td,
+  #rosterTable th,
+  #rosterTable td {
+    padding-top: 1.35mm !important;
+    padding-bottom: 1.35mm !important;
+    line-height: 1.15 !important;
+  }
+
+  /* Duty legend compact */
+  .duty-legend,
+  .legend {
+    margin-top: 1mm !important;
+    margin-bottom: 1mm !important;
+    padding: 0 !important;
+  }
+
+  /* Keep both signatures directly below roster on first page */
+  .signature-section,
+  .signatures,
+  .roster-signatures {
+    margin-top: 2mm !important;
+    margin-bottom: 0 !important;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+    min-height: 0 !important;
+    height: auto !important;
+    break-inside: avoid !important;
+    page-break-inside: avoid !important;
+    page-break-before: avoid !important;
+  }
+
+  .signature-line {
+    margin-top: 0 !important;
+    margin-bottom: .5mm !important;
+  }
+
+  /* Prevent roster content from forcing a second print page */
+  .roster-card,
+  #rosterPrintArea,
+  #rosterArea {
+    break-after: avoid !important;
+    page-break-after: avoid !important;
+  }
+}
+
+.login-page {
+  min-height: 100vh;
+  background: #f3f5f8;
+  margin: 0
+}
+
+.login-shell {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 24px
+}
+
+.login-card {
+  width: min(460px, 100%);
+  background: #fff;
+  border: 1px solid #dfe4ea;
+  border-radius: 18px;
+  padding: 28px;
+  box-shadow: 0 18px 55px #0002
+}
+
+.login-brand {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  margin-bottom: 24px
+}
+
+.login-logo {
+  width: 78px;
+  height: 78px;
+  object-fit: contain
+}
+
+.login-kicker {
+  color: var(--primary);
+  font-size: 12px;
+  font-weight: 900;
+  text-transform: uppercase
+}
+
+.login-brand h1 {
+  margin: 0;
+  font-size: 24px
+}
+
+.login-form {
+  display: grid;
+  gap: 10px
+}
+
+.login-form label {
+  font-weight: 800
+}
+
+.login-form input {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 13px;
+  border: 1px solid #cfd6df;
+  border-radius: 10px
+}
+
+.password-wrap {
+  position: relative
+}
+
+.password-wrap input {
+  padding-right: 70px
+}
+
+.password-toggle {
+  position: absolute;
+  right: 7px;
+  top: 50%;
+  transform: translateY(-50%);
+  border: 0;
+  padding: 7px
+}
+
+.login-submit {
+  margin-top: 8px;
+  border: 0;
+  border-radius: 10px;
+  background: var(--primary-dark);
+  color: #fff;
+  padding: 13px;
+  font-weight: 900
+}
+
+.login-message {
+  min-height: 20px;
+  color: var(--danger);
+  font-weight: 700
+}
+
+.login-help {
+  text-align: center;
+  color: var(--text-muted);
+  font-size: 13px
+}
+
+.nav-logout {
+  border: 0;
+  border-radius: 8px;
+  background: var(--primary-dark);
+  color: #fff;
+  padding: 9px 13px;
+  font-weight: 800;
+  margin-left: 10px
+}
+
+@media print {
+  .nav-logout {
+    display: none !important
+  }
+}
+
+.login-admin-name {
+  text-align: center;
+  margin: 8px 0 0;
+  color: #4b5563;
+  font-size: 13px
+}
+
+.login-admin-name strong {
+  color: var(--primary-dark);
+  font-weight: 900
+}
+
+.modern-login-page {
+  margin: 0;
+  min-height: 100vh;
+  background: #080d22;
+  color: #111827;
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif
+}
+
+.modern-login-shell {
+  min-height: calc(100vh - 58px);
+  display: grid;
+  grid-template-columns: minmax(340px, 1fr) minmax(520px, 1.05fr);
+  background: radial-gradient(circle at 28% 35%, #303b68 0, #151d43 34%, #080d22 70%)
+}
+
+.brand-panel {
+  position: relative;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  padding: 48px
+}
+
+.brand-panel:before {
+  content: "";
+  position: absolute;
+  width: 520px;
+  height: 520px;
+  border-radius: 50%;
+  background: radial-gradient(circle, #9f123944, transparent 68%);
+  left: -170px;
+  bottom: -260px
+}
+
+.brand-panel:after {
+  content: "";
+  position: absolute;
+  inset: auto -15% -20% 0;
+  height: 35%;
+  background: linear-gradient(135deg, transparent 20%, #9f123966 21%, #5b217e55 50%, transparent 51%);
+  transform: skewY(-8deg)
+}
+
+.brand-inner {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  color: #fff;
+  max-width: 520px
+}
+
+.brand-logo {
+  width: 132px;
+  height: 132px;
+  filter: drop-shadow(0 18px 30px #0005)
+}
+
+.brand-eyebrow {
+  font-size: 12px;
+  letter-spacing: .22em;
+  color: #cbd5e1;
+  font-weight: 800;
+  margin: 22px 0 10px
+}
+
+.brand-inner h1 {
+  font-size: clamp(38px, 4vw, 64px);
+  line-height: .98;
+  margin: 0;
+  text-transform: uppercase
+}
+
+.brand-inner h1 span {
+  color: #e11d48
+}
+
+.brand-copy {
+  color: #cbd5e1;
+  line-height: 1.7;
+  font-size: 16px;
+  margin: 24px auto;
+  max-width: 440px
+}
+
+.developer-credit {
+  display: inline-grid;
+  gap: 3px;
+  padding: 12px 24px;
+  border-top: 1px solid #ffffff35;
+  border-bottom: 1px solid #ffffff35
+}
+
+.developer-credit small {
+  color: #cbd5e1
+}
+
+.developer-credit strong {
+  font-size: 20px;
+  color: #fb7185
+}
+
+.signin-panel {
+  display: grid;
+  place-items: center;
+  padding: 42px;
+  background: linear-gradient(145deg, #f8fafc, #eef2ff)
+}
+
+.signin-card {
+  width: min(540px, 100%);
+  box-sizing: border-box;
+  background: #ffffffee;
+  border: 1px solid #fff;
+  border-radius: 28px;
+  padding: 46px;
+  box-shadow: 0 28px 80px #0f172a26;
+  text-align: center
+}
+
+.secure-icon {
+  width: 64px;
+  height: 64px;
+  margin: 0 auto 18px;
+  display: grid;
+  place-items: center;
+  border-radius: 20px;
+  background: linear-gradient(135deg, #fff1f2, #ede9fe);
+  color: #9f1239;
+  font-size: 34px
+}
+
+.welcome {
+  margin: 0;
+  color: #64748b;
+  font-weight: 700
+}
+
+.signin-card h2 {
+  font-size: 34px;
+  line-height: 1.1;
+  margin: 7px 0 10px;
+  color: #0f172a
+}
+
+.signin-sub {
+  color: #64748b;
+  margin: 0 0 30px
+}
+
+.modern-login-form {
+  text-align: left
+}
+
+.modern-login-form label {
+  display: block;
+  font-weight: 800;
+  margin: 15px 0 8px
+}
+
+.field-wrap {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border: 1px solid #d7dce5;
+  border-radius: 13px;
+  padding: 0 14px;
+  background: #fff
+}
+
+.field-wrap:focus-within {
+  border-color: #9f1239;
+  box-shadow: 0 0 0 4px #9f123918
+}
+
+.field-wrap input {
+  width: 100%;
+  border: 0 !important;
+  outline: 0 !important;
+  box-shadow: none !important;
+  padding: 15px 4px !important;
+  font: inherit;
+  background: transparent
+}
+
+.field-wrap button {
+  border: 0;
+  background: transparent;
+  color: #7e22ce;
+  font-weight: 800;
+  cursor: pointer
+}
+
+.modern-login-button {
+  width: 100%;
+  margin-top: 24px;
+  border: 0;
+  border-radius: 13px;
+  padding: 15px;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 900;
+  cursor: pointer;
+  background: linear-gradient(100deg, #9f1239, #6d28d9);
+  box-shadow: 0 12px 28px #7e22ce30
+}
+
+.secure-access {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  color: #64748b;
+  margin-top: 22px;
+  padding-top: 20px;
+  border-top: 1px solid #e5e7eb;
+  font-size: 14px
+}
+
+.account-admin {
+  font-size: 12px;
+  color: #94a3b8;
+  margin: 15px 0 0
+}
+
+.account-admin strong {
+  color: #9f1239
+}
+
+.modern-login-footer {
+  height: 58px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #080d22;
+  color: #cbd5e1;
+  border-top: 1px solid #ffffff14;
+  font-size: 14px
+}
+
+.modern-login-footer strong {
+  color: #fb7185;
+  margin-left: 5px
+}
+
+.mobile-brand {
+  display: none
+}
+
+.app-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px
+}
+
+.app-brand img {
+  width: 38px;
+  height: 38px;
+  border-radius: 10px
+}
+
+.app-brand span {
+  font-weight: 900
+}
+
+@media(max-width:900px) {
+  .modern-login-shell {
+    grid-template-columns: 1fr
+  }
+
+  .brand-panel {
+    display: none
+  }
+
+  .signin-panel {
+    padding: 24px;
+    min-height: calc(100vh - 58px)
+  }
+
+  .signin-card {
+    padding: 30px 24px
+  }
+
+  .mobile-brand {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 24px
+  }
+
+  .mobile-brand img {
+    width: 44px;
+    height: 44px
+  }
+
+  .signin-card h2 {
+    font-size: 28px
+  }
+
+  .modern-login-footer {
+    padding: 0 16px;
+    text-align: center;
+    font-size: 12px
+  }
+}
+
+@media print {
+  .app-brand img {
+    display: none !important
+  }
+}
+
+/* ===== TOP APP HEADER & SLIDE-IN SIDEBAR DRAWER ===== */
+
+/* Base body layout for app pages */
+body:not(.hrb-login-page) {
+  display: flex !important;
+  flex-direction: column !important;
+  min-height: 100vh !important;
+  background: var(--bg, #f4f6f8) !important;
+  overflow-x: hidden !important;
+}
+
+/* 1. Top App Header Bar */
+.app-header {
+  position: sticky !important;
+  top: 0 !important;
+  z-index: 100 !important;
+  background: #ffffff !important;
+  border-bottom: 1px solid var(--border-light, #e2e8f0) !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  padding: 10px 22px !important;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04) !important;
+  box-sizing: border-box !important;
+  width: 100% !important;
+}
+
+.header-left {
+  display: flex !important;
+  align-items: center !important;
+  gap: 14px !important;
+  min-width: 0 !important;
+  flex: 1 1 auto !important;
+}
+
+.header-left .brand-link {
+  display: flex !important;
+  align-items: center !important;
+  text-decoration: none !important;
+  flex-shrink: 0 !important;
+}
+
+.header-left .app-brand {
+  display: flex !important;
+  align-items: center !important;
+  gap: 10px !important;
+}
+
+.header-left .app-brand > img {
+  width: 36px !important;
+  height: 36px !important;
+  min-width: 36px !important;
+  border-radius: 50% !important;
+  border: 2px solid var(--accent, #34d399) !important;
+  padding: 1px !important;
+  background: #ffffff !important;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1) !important;
+  transition: transform 0.3s ease !important;
+}
+
+.header-left .app-brand:hover > img {
+  transform: rotate(15deg) scale(1.05) !important;
+}
+
+.header-left .app-brand > span,
+.header-left .brand-title {
+  font-size: 16px !important;
+  font-weight: 800 !important;
+  color: var(--primary-dark, #064e3b) !important;
+  letter-spacing: -0.2px !important;
+  white-space: nowrap !important;
+}
+
+/* Live Date/Time Box in Header (Left Side beside Logo) */
+.header-datetime {
+  background: #f1f5f9 !important;
+  color: #334155 !important;
+  font-size: 12.5px !important;
+  font-weight: 600 !important;
+  padding: 5px 12px !important;
+  border-radius: 18px !important;
+  border: 1px solid #cbd5e1 !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 6px !important;
+  white-space: nowrap !important;
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.03) !important;
+  letter-spacing: 0.2px !important;
+  flex-shrink: 0 !important;
+}
+
+.header-datetime::before {
+  content: "🕒" !important;
+  font-size: 11px !important;
+}
+
+/* Top Right Hamburger Button (☰) */
+.header-right {
+  display: flex !important;
+  align-items: center !important;
+  margin-left: auto !important;
+  flex-shrink: 0 !important;
+}
+
+.hamburger-btn {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 4px !important;
+  width: 40px !important;
+  height: 38px !important;
+  background: var(--primary-dark, #02120e) !important;
+  border: 1px solid rgba(255, 255, 255, 0.15) !important;
+  cursor: pointer !important;
+  padding: 6px !important;
+  border-radius: 9px !important;
+  box-shadow: 0 2px 8px rgba(4, 120, 87, 0.2) !important;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+.hamburger-btn:hover {
+  background: var(--primary, #047857) !important;
+  transform: scale(1.05) !important;
+  box-shadow: 0 4px 14px rgba(4, 120, 87, 0.35) !important;
+}
+
+.hamburger-btn span {
+  display: block !important;
+  width: 20px !important;
+  height: 2.5px !important;
+  background: #ffffff !important;
+  border-radius: 3px !important;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.2s ease !important;
+}
+
+/* 2. Dark Overlay / Backdrop */
+.sidebar-backdrop {
+  position: fixed !important;
+  inset: 0 !important;
+  background: rgba(0, 0, 0, 0.55) !important;
+  backdrop-filter: blur(4px) !important;
+  -webkit-backdrop-filter: blur(4px) !important;
+  z-index: 998 !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+  transition: opacity 0.35s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+body.sidebar-open .sidebar-backdrop {
+  opacity: 1 !important;
+  pointer-events: auto !important;
+}
+
+/* 3. Slide-in Left-Side Sidebar Drawer (Dark Green) */
+.sidebar-drawer {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 300px !important;
+  min-width: 300px !important;
+  max-width: 86vw !important;
+  height: 100vh !important;
+  height: 100dvh !important;
+  flex-direction: column !important;
+  justify-content: flex-start !important;
+  align-items: stretch !important;
+  background: #02120e !important; /* Premium Dark Green background */
+  border-right: 1px solid rgba(255, 255, 255, 0.12) !important;
+  padding: 28px 22px 24px !important;
+  gap: 24px !important;
+  z-index: 999 !important;
+  box-shadow: 12px 0 45px rgba(0, 0, 0, 0.5) !important;
+  transform: translateX(-100%) !important;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  overflow-y: auto !important;
+  -webkit-overflow-scrolling: touch !important;
+  box-sizing: border-box !important;
+}
+
+body.sidebar-open .sidebar-drawer {
+  transform: translateX(0) !important;
+}
+
+/* Drawer Top Bar with Brand & ✕ Close Button */
+.drawer-top {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  width: 100% !important;
+  padding-bottom: 16px !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
+
+.drawer-top .brand-link {
+  min-width: 0 !important;
+  display: flex !important;
+  align-items: center !important;
+  text-decoration: none !important;
+}
+
+.drawer-top .brand-link .app-brand {
+  display: flex !important;
+  align-items: center !important;
+  gap: 12px !important;
+}
+
+.drawer-top .brand-link .app-brand > img {
+  width: 42px !important;
+  height: 42px !important;
+  min-width: 42px !important;
+  border-radius: 50% !important;
+  border: 2px solid var(--accent, #34d399) !important;
+  padding: 2px !important;
+  background: #fff !important;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.2) !important;
+}
+
+.drawer-top .brand-link .app-brand > span {
+  color: #fff !important;
+  font-size: 14.5px !important;
+  font-weight: 800 !important;
+  letter-spacing: 0.4px !important;
+  line-height: 1.3 !important;
+  text-transform: uppercase !important;
+}
+
+.drawer-close-btn {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 34px !important;
+  height: 34px !important;
+  background: rgba(255, 255, 255, 0.08) !important;
+  border: 1px solid rgba(255, 255, 255, 0.18) !important;
+  color: #fff !important;
+  border-radius: 10px !important;
+  font-size: 20px !important;
+  line-height: 1 !important;
+  cursor: pointer !important;
+  transition: all 0.2s ease !important;
+  flex-shrink: 0 !important;
+}
+
+.drawer-close-btn:hover {
+  background: rgba(255, 255, 255, 0.2) !important;
+  transform: scale(1.08) !important;
+}
+
+/* Drawer Navigation Links */
+.sidebar-drawer .main-nav {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: stretch !important;
+  gap: 10px !important;
+  flex-grow: 1 !important;
+  width: 100% !important;
+  overflow-x: visible !important;
+  padding: 0 !important;
+}
+
+.sidebar-drawer .main-nav a {
+  color: rgba(255, 255, 255, 0.82) !important;
+  font-size: 15px !important;
+  font-weight: 600 !important;
+  padding: 13px 18px !important;
+  border-radius: 12px !important;
+  background: transparent !important;
+  border: 1px solid transparent !important;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 12px !important;
+  text-decoration: none !important;
+}
+
+.sidebar-drawer .main-nav a:hover {
+  color: #fff !important;
+  background: rgba(255, 255, 255, 0.09) !important;
+  border-color: rgba(255, 255, 255, 0.15) !important;
+  transform: translateX(5px) !important;
+}
+
+/* Active Sidebar States */
+body.dashboard-page .sidebar-drawer .main-nav a[href="index.html"],
+body[data-page="dashboard"] .sidebar-drawer .main-nav a[href="index.html"],
+body.staff-page .sidebar-drawer .main-nav a[href*="staff.html"],
+body[data-page="staff"] .sidebar-drawer .main-nav a[href*="staff.html"],
+body.roster-page .sidebar-drawer .main-nav a[href*="roster.html"],
+body[data-page="roster"] .sidebar-drawer .main-nav a[href*="roster.html"],
+body.history-page .sidebar-drawer .main-nav a[href*="history.html"],
+body[data-page="history"] .sidebar-drawer .main-nav a[href*="history.html"],
+body.about-page .sidebar-drawer .main-nav a[href*="about.html"],
+body[data-page="about"] .sidebar-drawer .main-nav a[href*="about.html"] {
+  background: var(--primary, #047857) !important;
+  color: #fff !important;
+  border-color: var(--accent, #34d399) !important;
+  box-shadow: 0 6px 18px rgba(4, 120, 87, 0.35) !important;
+}
+
+/* Drawer Logout Button */
+.sidebar-drawer .nav-logout {
+  margin-left: 0 !important;
+  margin-top: auto !important;
+  background: rgba(255, 255, 255, 0.06) !important;
+  border: 1px solid rgba(255, 255, 255, 0.18) !important;
+  color: #fff !important;
+  border-radius: 12px !important;
+  padding: 13px 20px !important;
+  width: 100% !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 8px !important;
+  font-weight: 700 !important;
+  font-size: 14.5px !important;
+  cursor: pointer !important;
+  transition: all 0.25s ease !important;
+}
+
+.sidebar-drawer .nav-logout:hover {
+  background: var(--danger, #dc2626) !important;
+  border-color: var(--danger, #dc2626) !important;
+  box-shadow: 0 6px 20px rgba(220, 38, 38, 0.4) !important;
+  transform: translateY(-2px) !important;
+}
+
+/* 4. Main Page Container & Layout */
+.multi-page-container {
+  margin: 0 auto !important;
+  padding: 20px 24px 20px !important;
+  width: 100% !important;
+  max-width: 1500px !important;
+  min-height: calc(100vh - 65px) !important;
+  display: flex !important;
+  flex-direction: column !important;
+  flex: 1 0 auto !important;
+  box-sizing: border-box !important;
+  transition: filter 0.3s ease !important;
+}
+
+/* ===== STICKY FULL-WIDTH SLIM PROFESSIONAL FOOTER ===== */
+body:not(.hrb-login-page) footer {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 2px !important;
+  /* Sticky-bottom: body is flex-column, so margin-top: auto pushes footer down */
+  margin-top: auto !important;
+  flex-shrink: 0 !important;
+  /* Full viewport width */
+  width: 100% !important;
+  max-width: 100% !important;
+  box-sizing: border-box !important;
+  /* Appearance - compact & slim */
+  background: #02120e !important;
+  color: #94a3b8 !important;
+  padding: 8px 16px !important;
+  text-align: center !important;
+  font-size: 12px !important;
+  line-height: 1.35 !important;
+  border-top: 1px solid rgba(255, 255, 255, 0.08) !important;
+  position: relative !important;
+  z-index: 10 !important;
+  letter-spacing: 0.15px !important;
+}
+
+body:not(.hrb-login-page) footer p {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+body:not(.hrb-login-page) footer a {
+  color: #fbbf24 !important;
+  font-weight: 700 !important;
+  text-decoration: none !important;
+  transition: color 0.2s ease, opacity 0.2s ease !important;
+}
+
+body:not(.hrb-login-page) footer a:hover {
+  color: #fde68a !important;
+  text-decoration: underline !important;
+}
+
+body:not(.hrb-login-page) footer strong {
+  color: #fbbf24 !important;
+  font-weight: 800 !important;
+}
+
+/* 5. Mobile & Tablet Responsiveness Enhancements */
+@media (max-width: 768px) {
+  .app-header {
+    padding: 8px 14px !important;
+  }
+
+  .header-left {
+    gap: 10px !important;
+  }
+
+  .header-left .app-brand > img {
+    width: 32px !important;
+    height: 32px !important;
+    min-width: 32px !important;
+  }
+
+  .header-left .app-brand > span {
+    font-size: 14.5px !important;
+  }
+
+  .header-datetime {
+    font-size: 11.5px !important;
+    padding: 4px 10px !important;
+  }
+
+  .hamburger-btn {
+    width: 38px !important;
+    height: 36px !important;
+    padding: 5px !important;
+  }
+
+  .hamburger-btn span {
+    width: 19px !important;
+  }
+
+  .multi-page-container {
+    padding: 16px 12px 24px !important;
+  }
+
+  /* Prevent page body overflow, ensure smooth horizontal scroll for tables */
+  .table-scroll,
+  .roster-scroll {
+    width: 100% !important;
+    max-width: 100% !important;
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+  }
+
+  /* Duty code card - hidden on mobile devices */
+  .duty-code-card {
+    display: none !important;
+  }
+}
+
+@media (max-width: 520px) {
+  /* On compact mobile screens, keep Logo and Date/Time on left, Menu on right */
+  .header-left .app-brand > span {
+    display: none !important;
+  }
+
+  .header-datetime {
+    display: flex !important;
+    font-size: 11px !important;
+    padding: 3px 8px !important;
+  }
+}
+
+/* Print Styles: Hide header, drawer, and backdrop */
+@media print {
+  .app-header,
+  .sidebar-drawer,
+  .sidebar-backdrop {
+    display: none !important;
+  }
+
+  .multi-page-container {
+    padding: 0 !important;
+    margin: 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+}
+
+
+.hrb-login-page {
+  margin: 0 !important;
+  min-height: 100vh !important;
+  background: #041812 !important; /* Extremely dark forest green */
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif !important
+}
+
+.hrb-login-layout {
+  max-width: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  min-height: calc(100vh - 54px) !important;
+  display: grid !important;
+  grid-template-columns: 1.05fr .95fr !important
+}
+
+.hrb-login-brand {
+  position: relative;
+  display: grid;
+  place-items: center;
+  padding: 48px;
+  overflow: hidden;
+  background: radial-gradient(circle at 20% 20%, #064e3b 0, #022c22 38%, #011c15 75%) /* Forest green radial */
+}
+
+.hrb-login-brand:after {
+  content: "";
+  position: absolute;
+  width: 520px;
+  height: 520px;
+  border-radius: 50%;
+  right: -260px;
+  bottom: -300px;
+  background: radial-gradient(circle, rgba(217, 119, 6, 0.25), transparent 67%) /* Soft Gold Glow */
+}
+
+.hrb-brand-content {
+  position: relative;
+  z-index: 1;
+  max-width: 560px;
+  color: #fff
+}
+
+.hrb-brand-lockup {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  animation: slideInLeft 0.8s cubic-bezier(0.25, 1, 0.5, 1) both;
+}
+
+.hrb-brand-lockup img {
+  width: 86px !important;
+  height: 86px !important;
+  max-width: 86px !important;
+  display: block !important;
+  transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) !important;
+}
+
+.hrb-brand-lockup:hover img {
+  transform: rotate(15deg) scale(1.1) !important;
+}
+
+.hrb-brand-lockup div {
+  display: grid
+}
+
+.hrb-brand-lockup strong {
+  font-size: 28px;
+  letter-spacing: .04em
+}
+
+.hrb-brand-lockup span {
+  font-size: 19px;
+  font-weight: 900;
+  color: #fbbf24; /* Amber gold */
+  letter-spacing: .08em
+}
+
+.hrb-tag {
+  margin: 48px 0 12px;
+  color: #cbd5e1;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: .2em;
+  animation: letterSpacingStretch 1s cubic-bezier(0.25, 1, 0.5, 1) 0.2s both;
+}
+
+.hrb-brand-content h1 {
+  margin: 0;
+  font-size: clamp(40px, 5vw, 68px);
+  line-height: 1.02;
+  letter-spacing: -.04em;
+  animation: fadeInUp 0.8s cubic-bezier(0.25, 1, 0.5, 1) 0.4s both;
+}
+
+.hrb-brand-content h1 em {
+  font-style: normal;
+  background: linear-gradient(90deg, #10b981, #fbbf24); /* Emerald-Amber Gold Gradient */
+  -webkit-background-clip: text;
+  color: transparent
+}
+
+.hrb-copy {
+  max-width: 500px;
+  color: #cbd5e1;
+  font-size: 17px;
+  line-height: 1.7;
+  margin: 24px 0;
+  animation: fadeInUp 0.8s cubic-bezier(0.25, 1, 0.5, 1) 0.6s both;
+}
+
+.hrb-by {
+  display: inline-block;
+  border: 1px solid #ffffff22;
+  background: #ffffff0c;
+  border-radius: 999px;
+  padding: 10px 16px;
+  color: #cbd5e1
+}
+
+.hrb-by strong {
+  color: #fff
+}
+
+.hrb-login-form-side {
+  display: grid;
+  place-items: center;
+  padding: 36px;
+  background: linear-gradient(145deg, #f4f8f6, #e6efeb) /* Subtle Sage/Forest Gray */
+}
+
+.hrb-login-card {
+  width: min(480px, 100%);
+  box-sizing: border-box;
+  background: #fff;
+  border: 1px solid #d1fae5;
+  border-radius: 24px;
+  padding: 42px;
+  box-shadow: 0 28px 70px rgba(6, 78, 59, 0.08);
+  animation: fadeInUp 0.9s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+
+.hrb-mobile-logo {
+  display: none
+}
+
+.hrb-welcome {
+  margin: 0 0 8px;
+  color: #059669; /* Emerald Green */
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: .14em
+}
+
+.hrb-login-card h2 {
+  margin: 0;
+  color: #062e24; /* Forest Green Text */
+  font-size: 34px;
+  letter-spacing: -.03em
+}
+
+.hrb-sub {
+  color: #475569;
+  margin: 10px 0 28px
+}
+
+.hrb-login-card form label {
+  display: block !important;
+  margin: 15px 0 7px !important;
+  color: #062e24 !important;
+  font-size: 13px !important;
+  font-weight: 800 !important
+}
+
+.hrb-field {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border: 1px solid #ccdcd6;
+  border-radius: 12px;
+  padding: 0 13px;
+  background: #fff;
+  transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.hrb-field:focus-within {
+  border-color: #047857;
+  box-shadow: 0 8px 20px rgba(4, 120, 87, 0.08), 0 0 0 4px rgba(4, 120, 87, 0.15);
+  transform: translateY(-2px);
+}
+
+.hrb-field>span {
+  color: #94a3b8;
+  font-size: 12px
+}
+
+.hrb-field input {
+  width: 100% !important;
+  min-width: 0 !important;
+  border: 0 !important;
+  outline: 0 !important;
+  box-shadow: none !important;
+  padding: 14px 2px !important;
+  background: transparent !important
+}
+
+.hrb-field button {
+  border: 0 !important;
+  background: transparent !important;
+  color: #047857 !important;
+  padding: 8px !important
+}
+
+.hrb-submit {
+  width: 100%;
+  margin-top: 24px;
+  border-radius: 12px !important;
+  padding: 14px !important;
+  background: linear-gradient(135deg, #047857 0%, #d97706 50%, #047857 100%) !important; /* Shifting gradient */
+  background-size: 200% auto !important;
+  box-shadow: 0 12px 24px rgba(4, 120, 87, 0.2) !important;
+  transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1) !important;
+}
+
+.hrb-submit:hover {
+  background-position: right center !important;
+  transform: translateY(-3px) scale(1.02) !important;
+  box-shadow: 0 16px 32px rgba(4, 120, 87, 0.35) !important;
+}
+
+.hrb-submit:active {
+  transform: translateY(1px) scale(0.98) !important;
+}
+
+.hrb-error {
+  min-height: 20px;
+  color: #b42318;
+  font-size: 13px;
+  font-weight: 700
+}
+
+.hrb-secure {
+  text-align: center;
+  border-top: 1px solid #e2e8f0;
+  padding-top: 18px;
+  margin-top: 10px;
+  color: #64748b;
+  font-size: 13px
+}
+
+.hrb-admin {
+  text-align: center;
+  color: #94a3b8;
+  font-size: 12px
+}
+
+.hrb-admin strong {
+  color: #d97706 /* Amber */
+}
+
+.hrb-login-footer {
+  padding: 8px 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  background: #02120e;
+  color: #94a3b8;
+  font-size: 12px;
+  line-height: 1.35;
+  border-top: 1px solid #ffffff12;
+  text-align: center;
+}
+
+.hrb-login-footer p {
+  margin: 0;
+  padding: 0;
+}
+
+.hrb-login-footer a {
+  color: #fbbf24;
+  font-weight: 700;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.hrb-login-footer a:hover {
+  color: #fde68a;
+  text-decoration: underline;
+}
+
+.hrb-login-footer strong {
+  margin-left: 4px;
+  color: #fbbf24 /* Gold */
+}
+
+@media(max-width:900px) {
+  .hrb-login-layout {
+    grid-template-columns: 1fr !important
+  }
+
+  .hrb-login-brand {
+    display: none !important
+  }
+
+  .hrb-login-form-side {
+    min-height: calc(100vh - 54px);
+    padding: 20px
+  }
+
+  .hrb-login-card {
+    padding: 30px 24px
+  }
+
+  .hrb-mobile-logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 28px;
+    color: #111827
+  }
+
+  .hrb-mobile-logo img {
+    width: 54px !important;
+    height: 54px !important;
+    max-width: 54px !important
+  }
+
+  .hrb-mobile-logo b {
+    font-size: 20px !important;
+  }
+
+  .hrb-login-card h2 {
+    font-size: 28px
+  }
+
+  .hrb-login-footer {
+    padding: 0 12px;
+    text-align: center;
+    font-size: 11px
+  }
+}
+
+@media print {
+  .topbar .app-brand>img {
+    display: none !important
+  }
+}
+
+/* === SAIMS PRINT ONE PAGE FIX V2 === */
+@media print {
+  @page {
+    size: A4 landscape;
+    margin: 2mm;
+  }
+
+  html,
+  body {
+    margin: 0 !important;
+    padding: 0 !important;
+    width: 100% !important;
+    height: auto !important;
+    overflow: visible !important;
+    background: #fff !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  /* Keep the actual roster together naturally; do not force whole table avoidance */
+  #printArea,
+  .print-area,
+  #rosterPrintArea,
+  .roster-print-area,
+  .roster-output,
+  .roster-preview,
+  .roster-card {
+    width: 100% !important;
+    max-width: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    border: 0 !important;
+    box-shadow: none !important;
+    overflow: visible !important;
+  }
+
+  /* Compact header */
+  .roster-header,
+  .print-header,
+  .roster-title-wrap {
+    margin: 0 0 0.8mm !important;
+    padding: 0 !important;
+    height: auto !important;
+    min-height: 0 !important;
+    break-after: avoid-page !important;
+    page-break-after: avoid !important;
+  }
+
+  .roster-header img,
+  .print-header img,
+  .hospital-logo {
+    max-height: 9mm !important;
+    width: auto !important;
+  }
+
+  .roster-header h1,
+  .print-header h1,
+  .roster-header h2,
+  .print-header h2,
+  .roster-header h3,
+  .print-header h3,
+  .roster-header p,
+  .print-header p {
+    margin: 0 !important;
+    padding: 0 !important;
+    line-height: 1 !important;
+  }
+
+  /* Main table */
+  table {
+    width: 100% !important;
+    max-width: 100% !important;
+    table-layout: fixed !important;
+    border-collapse: collapse !important;
+    margin: 0 !important;
+    font-size: 6pt !important;
+    line-height: 1 !important;
+    page-break-inside: auto !important;
+    break-inside: auto !important;
+  }
+
+  thead {
+    display: table-header-group !important;
+  }
+
+  tbody {
+    display: table-row-group !important;
+    page-break-inside: auto !important;
+    break-inside: auto !important;
+  }
+
+  tr {
+    height: 5.8mm !important;
+    min-height: 5.8mm !important;
+    max-height: 5.8mm !important;
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
+  }
+
+  th,
+  td {
+    box-sizing: border-box !important;
+    height: 5.8mm !important;
+    min-height: 5.8mm !important;
+    max-height: 5.8mm !important;
+    padding: 0.15mm 0.15mm !important;
+    border: 0.3mm solid #000 !important;
+    vertical-align: middle !important;
+    overflow: hidden !important;
+    color: #000 !important;
+  }
+
+  /* Sr */
+  th:nth-child(1),
+  td:nth-child(1) {
+    width: 4mm !important;
+    text-align: center !important;
+    font-size: 5pt !important;
+  }
+
+  /* Name: wide and single line */
+  th:nth-child(2),
+  td:nth-child(2) {
+    width: 42mm !important;
+    white-space: nowrap !important;
+    word-break: keep-all !important;
+    overflow-wrap: normal !important;
+    text-overflow: clip !important;
+    text-align: left !important;
+    font-size: 7.4pt !important;
+    font-weight: 800 !important;
+    letter-spacing: -0.25px !important;
+  }
+
+  /* ID */
+  th:nth-child(3),
+  td:nth-child(3) {
+    width: 14mm !important;
+    white-space: nowrap !important;
+    text-align: center !important;
+    font-size: 6.3pt !important;
+    font-weight: 800 !important;
+  }
+
+  /* Dates / duties */
+  th:nth-child(n+4),
+  td:nth-child(n+4) {
+    width: auto !important;
+    min-width: 0 !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    text-align: center !important;
+    white-space: nowrap !important;
+    font-size: 5.5pt !important;
+    font-weight: 800 !important;
+  }
+
+  td input,
+  td select,
+  td textarea,
+  .duty-input,
+  .duty-cell input {
+    appearance: none !important;
+    -webkit-appearance: none !important;
+    border: 0 !important;
+    outline: 0 !important;
+    box-shadow: none !important;
+    background: transparent !important;
+    width: 100% !important;
+    height: 100% !important;
+    min-width: 0 !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    text-align: center !important;
+    font: 800 6.5pt/1 Arial, sans-serif !important;
+    color: #000 !important;
+  }
+
+  .duty-legend,
+  .legend {
+    margin: 0.8mm 0 0 !important;
+    padding: 0 !important;
+    font-size: 5pt !important;
+    line-height: 1 !important;
+    break-before: avoid-page !important;
+    page-break-before: avoid !important;
+  }
+
+  .signature-row,
+  .signatures {
+    margin-top: 1.5mm !important;
+    padding: 0 !important;
+    height: 7mm !important;
+    min-height: 7mm !important;
+    font-size: 5pt !important;
+    break-before: avoid-page !important;
+    page-break-before: avoid !important;
+  }
+}
+
+
+/* === SAIMS STRICT ONE PAGE PRINT FIX V3 === */
+@media print {
+  @page {
+    size: A4 landscape;
+    margin: 0mm !important;
+  }
+
+  html,
+  body {
+    width: 297mm !important;
+    height: 210mm !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow: hidden !important;
+  }
+
+  body {
+    zoom: 0.86 !important;
+  }
+
+  /* Hide normal app chrome/actions */
+  header:not(.roster-header),
+  nav,
+  footer,
+  .navbar,
+  .topbar,
+  .actions,
+  .action-bar,
+  .controls,
+  .no-print,
+  button {
+    display: none !important;
+  }
+
+  #printArea,
+  .print-area,
+  #rosterPrintArea,
+  .roster-print-area,
+  .roster-output,
+  .roster-preview,
+  .roster-card {
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow: visible !important;
+    transform: none !important;
+  }
+
+  .roster-header,
+  .print-header,
+  .roster-title-wrap {
+    margin: 0 !important;
+    padding: 0 !important;
+    min-height: 0 !important;
+    height: 13mm !important;
+    overflow: hidden !important;
+  }
+
+  .roster-header img,
+  .print-header img,
+  .hospital-logo {
+    max-height: 8mm !important;
+    width: auto !important;
+  }
+
+  table {
+    width: 100% !important;
+    table-layout: fixed !important;
+    border-collapse: collapse !important;
+    margin: 0 !important;
+    page-break-inside: auto !important;
+  }
+
+  thead {
+    display: table-header-group !important;
+  }
+
+  tbody {
+    display: table-row-group !important;
+  }
+
+  tr {
+    height: 5.15mm !important;
+    min-height: 5.15mm !important;
+    max-height: 5.15mm !important;
+    page-break-inside: avoid !important;
+  }
+
+  th,
+  td {
+    height: 5.15mm !important;
+    min-height: 5.15mm !important;
+    max-height: 5.15mm !important;
+    padding: 0 !important;
+    border: 0.28mm solid #000 !important;
+    line-height: 1 !important;
+    overflow: hidden !important;
+    vertical-align: middle !important;
+  }
+
+  th:nth-child(1),
+  td:nth-child(1) {
+    width: 4mm !important;
+    font-size: 5pt !important;
+  }
+
+  th:nth-child(2),
+  td:nth-child(2) {
+    width: 39mm !important;
+    white-space: nowrap !important;
+    word-break: normal !important;
+    overflow-wrap: normal !important;
+    text-overflow: clip !important;
+    font-size: 12.5px !important;
+    font-weight: 800 !important;
+    letter-spacing: -0.45px !important;
+    padding: 0 0.5mm !important;
+  }
+
+  th:nth-child(3),
+  td:nth-child(3) {
+    width: 13mm !important;
+    white-space: nowrap !important;
+    font-size: 6pt !important;
+    font-weight: 800 !important;
+  }
+
+  th:nth-child(n+4),
+  td:nth-child(n+4) {
+    min-width: 0 !important;
+    width: auto !important;
+    font-size: 5.3pt !important;
+    font-weight: 800 !important;
+    white-space: nowrap !important;
+  }
+
+  td input,
+  td select,
+  td textarea,
+  .duty-input,
+  .duty-cell input {
+    border: 0 !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    text-align: center !important;
+    font: 800 6.2pt/1 Arial, sans-serif !important;
+  }
+
+  .duty-legend,
+  .legend {
+    height: 4mm !important;
+    margin: 0.5mm 0 0 !important;
+    padding: 0 !important;
+    font-size: 4.7pt !important;
+    line-height: 1 !important;
+    overflow: hidden !important;
+  }
+
+  .signature-row,
+  .signatures {
+    height: 7mm !important;
+    min-height: 7mm !important;
+    max-height: 7mm !important;
+    margin: 0.5mm 0 0 !important;
+    padding: 0 !important;
+    font-size: 4.8pt !important;
+    overflow: hidden !important;
+  }
+}
+
+
+/* =========================================================
+   SAIMS FINAL PRINT V4 — FULL A4 LANDSCAPE / ALL 21 STAFF
+   This block intentionally overrides all older print fixes.
+   ========================================================= */
+@media print {
+  @page {
+    size: A4 landscape !important;
+    margin: 3mm !important;
+  }
+
+  html,
+  body {
+    width: auto !important;
+    height: auto !important;
+    min-width: 0 !important;
+    min-height: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow: visible !important;
+  }
+
+  body {
+    display: block !important;
+    zoom: 1 !important;
+    transform: none !important;
+    background: #fff !important;
+  }
+
+  /* App chrome only */
+  body>header,
+  body>footer,
+  .multi-topbar,
+  .topbar,
+  .navbar,
+  nav,
+  .no-print,
+  .actions,
+  .action-bar,
+  .controls,
+  button {
+    display: none !important;
+  }
+
+  main,
+  .multi-page-container {
+    display: block !important;
+    width: 100% !important;
+    max-width: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow: visible !important;
+  }
+
+  .roster-card,
+  #printArea,
+  .print-area,
+  #rosterPrintArea,
+  .roster-print-area,
+  .roster-output,
+  .roster-preview {
+    display: block !important;
+    box-sizing: border-box !important;
+    width: 100% !important;
+    max-width: none !important;
+    height: auto !important;
+    min-height: 0 !important;
+    max-height: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    border: 0 !important;
+    overflow: visible !important;
+    transform: none !important;
+    break-inside: avoid-page !important;
+    page-break-inside: avoid !important;
+  }
+
+  .roster-scroll {
+    width: 100% !important;
+    max-width: none !important;
+    height: auto !important;
+    max-height: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow: visible !important;
+  }
+
+  /* Compact header, but not clipped */
+  .hospital-header,
+  .roster-header,
+  .print-header,
+  .roster-title-wrap {
+    box-sizing: border-box !important;
+    width: 100% !important;
+    height: 15mm !important;
+    min-height: 15mm !important;
+    max-height: 15mm !important;
+    margin: 0 0 1mm 0 !important;
+    padding: 0 !important;
+    overflow: visible !important;
+  }
+
+  .hospital-header img,
+  .roster-header img,
+  .print-header img,
+  .hospital-logo {
+    width: auto !important;
+    height: 10mm !important;
+    max-height: 10mm !important;
+  }
+
+  .hospital-header h2 {
+    margin: 0 !important;
+    font-size: 10.5pt !important;
+    line-height: 1.05 !important;
+  }
+
+  .hospital-header h3 {
+    margin: 0 !important;
+    font-size: 7.5pt !important;
+    line-height: 1.05 !important;
+  }
+
+  .hospital-header p {
+    margin: 0 !important;
+    font-size: 7pt !important;
+    line-height: 1.05 !important;
+  }
+
+  /* Table fills the printable width */
+  #rosterTable,
+  table.roster {
+    display: table !important;
+    box-sizing: border-box !important;
+    width: 100% !important;
+    max-width: none !important;
+    table-layout: fixed !important;
+    border-collapse: collapse !important;
+    border-spacing: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    transform: none !important;
+  }
+
+  #rosterTable thead {
+    display: table-header-group !important;
+  }
+
+  #rosterTable tbody {
+    display: table-row-group !important;
+  }
+
+  #rosterTable tr {
+    display: table-row !important;
+    height: 6.25mm !important;
+    min-height: 6.25mm !important;
+    max-height: 6.25mm !important;
+    break-inside: avoid !important;
+    page-break-inside: avoid !important;
+  }
+
+  #rosterTable th,
+  #rosterTable td {
+    box-sizing: border-box !important;
+    height: 6.25mm !important;
+    min-height: 6.25mm !important;
+    max-height: 6.25mm !important;
+    padding: 0 !important;
+    border: 0.28mm solid #000 !important;
+    line-height: 1 !important;
+    vertical-align: middle !important;
+    overflow: hidden !important;
+  }
+
+  /* Sr. */
+  #rosterTable th:nth-child(1),
+  #rosterTable td:nth-child(1) {
+    width: 5mm !important;
+    min-width: 5mm !important;
+    max-width: 5mm !important;
+    font-size: 5pt !important;
+    text-align: center !important;
+  }
+
+  /* Staff name — exactly 12.5px, single line */
+  #rosterTable th:nth-child(2),
+  #rosterTable td:nth-child(2) {
+    width: 43mm !important;
+    min-width: 43mm !important;
+    max-width: 43mm !important;
+    padding: 0 0.6mm !important;
+    white-space: nowrap !important;
+    word-break: keep-all !important;
+    overflow-wrap: normal !important;
+    text-overflow: clip !important;
+    font-size: 12.5px !important;
+    font-weight: 800 !important;
+    letter-spacing: -0.35px !important;
+    text-align: center !important;
+  }
+
+  /* Unit / ID */
+  #rosterTable th:nth-child(3),
+  #rosterTable td:nth-child(3) {
+    width: 15mm !important;
+    min-width: 15mm !important;
+    max-width: 15mm !important;
+    white-space: nowrap !important;
+    font-size: 6pt !important;
+    font-weight: 800 !important;
+    text-align: center !important;
+  }
+
+  /* 31 date columns share every remaining millimetre */
+  #rosterTable th:nth-child(n+4),
+  #rosterTable td:nth-child(n+4) {
+    width: auto !important;
+    min-width: 0 !important;
+    max-width: none !important;
+    padding: 0 !important;
+    white-space: nowrap !important;
+    font-size: 5.2pt !important;
+    font-weight: 800 !important;
+    text-align: center !important;
+  }
+
+  #rosterTable input,
+  #rosterTable select,
+  #rosterTable textarea,
+  .duty-input,
+  .duty-cell input {
+    box-sizing: border-box !important;
+    width: 100% !important;
+    height: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    border: 0 !important;
+    outline: 0 !important;
+    box-shadow: none !important;
+    background: transparent !important;
+    text-align: center !important;
+    font: 800 7pt/1 Arial, sans-serif !important;
+  }
+
+  .print-legend,
+  .duty-legend,
+  .legend {
+    display: block !important;
+    box-sizing: border-box !important;
+    width: 100% !important;
+    height: 4mm !important;
+    min-height: 4mm !important;
+    max-height: 4mm !important;
+    margin: 1mm 0 0 0 !important;
+    padding: 0 !important;
+    overflow: visible !important;
+    font-size: 5pt !important;
+    line-height: 1 !important;
+  }
+
+  .signature-row,
+  .signature-section,
+  .signatures,
+  .roster-signatures {
+    display: flex !important;
+    box-sizing: border-box !important;
+    width: 100% !important;
+    height: 11mm !important;
+    min-height: 11mm !important;
+    max-height: 11mm !important;
+    margin: 1mm 0 0 0 !important;
+    padding: 0 7mm !important;
+    justify-content: space-between !important;
+    align-items: flex-end !important;
+    overflow: visible !important;
+    break-inside: avoid !important;
+    page-break-inside: avoid !important;
+  }
+
+  .signature-box {
+    width: 55mm !important;
+    font-size: 5pt !important;
+    text-align: center !important;
+  }
+
+  .signature-line {
+    margin: 0 0 1mm 0 !important;
+    border-top: 0.28mm solid #000 !important;
+  }
+}
+
+
+/* ==========================================================
+   SAIMS V5 FINAL — PRINT LIKE DOWNLOAD / FULL PAGE HEIGHT
+   ========================================================== */
+@media print {
+  @page {
+    size: A4 landscape !important;
+    margin: 4mm !important;
+  }
+
+  html,
+  body {
+    width: 100% !important;
+    height: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow: visible !important;
+  }
+
+  body {
+    zoom: 1 !important;
+    transform: none !important;
+    background: #fff !important;
+  }
+
+  body>header,
+  body>footer,
+  nav,
+  .navbar,
+  .topbar,
+  .actions,
+  .action-bar,
+  .controls,
+  .no-print,
+  button {
+    display: none !important;
+  }
+
+  main,
+  .multi-page-container,
+  .roster-card,
+  #printArea,
+  .print-area,
+  #rosterPrintArea,
+  .roster-print-area,
+  .roster-output,
+  .roster-preview,
+  .roster-scroll {
+    width: 100% !important;
+    max-width: none !important;
+    height: auto !important;
+    max-height: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    border: 0 !important;
+    overflow: visible !important;
+    transform: none !important;
+  }
+
+  /* Header uses visible space like downloaded PDF */
+  .hospital-header,
+  .roster-header,
+  .print-header,
+  .roster-title-wrap {
+    width: 100% !important;
+    height: 18mm !important;
+    min-height: 18mm !important;
+    max-height: 18mm !important;
+    margin: 0 0 2mm 0 !important;
+    padding: 0 !important;
+    overflow: visible !important;
+  }
+
+  .hospital-header img,
+  .roster-header img,
+  .print-header img,
+  .hospital-logo {
+    height: 12mm !important;
+    max-height: 12mm !important;
+    width: auto !important;
+  }
+
+  .hospital-header h2 {
+    margin: 0 !important;
+    font-size: 12pt !important;
+    line-height: 1.05 !important;
+  }
+
+  .hospital-header h3 {
+    margin: 0 !important;
+    font-size: 9pt !important;
+    line-height: 1.05 !important;
+  }
+
+  .hospital-header p {
+    margin: 0 !important;
+    font-size: 8pt !important;
+    line-height: 1.05 !important;
+  }
+
+  #rosterTable,
+  table.roster {
+    display: table !important;
+    width: 100% !important;
+    max-width: none !important;
+    table-layout: fixed !important;
+    border-collapse: collapse !important;
+    border-spacing: 0 !important;
+    margin: 0 !important;
+  }
+
+  #rosterTable thead {
+    display: table-header-group !important;
+  }
+
+  #rosterTable tbody {
+    display: table-row-group !important;
+  }
+
+  /* 22 rows total incl. header × 7.05mm ~= 155mm:
+     this is the key change that fills the page downward. */
+  #rosterTable tr {
+    display: table-row !important;
+    height: 7.05mm !important;
+    min-height: 7.05mm !important;
+    max-height: 7.05mm !important;
+    break-inside: avoid !important;
+    page-break-inside: avoid !important;
+  }
+
+  #rosterTable th,
+  #rosterTable td {
+    box-sizing: border-box !important;
+    height: 7.05mm !important;
+    min-height: 7.05mm !important;
+    max-height: 7.05mm !important;
+    padding: 0 !important;
+    border: 0.3mm solid #000 !important;
+    vertical-align: middle !important;
+    line-height: 1 !important;
+    overflow: hidden !important;
+  }
+
+  #rosterTable th:nth-child(1),
+  #rosterTable td:nth-child(1) {
+    width: 5mm !important;
+    font-size: 5.5pt !important;
+    text-align: center !important;
+  }
+
+  #rosterTable th:nth-child(2),
+  #rosterTable td:nth-child(2) {
+    width: 43mm !important;
+    padding: 0 0.6mm !important;
+    white-space: nowrap !important;
+    word-break: keep-all !important;
+    overflow-wrap: normal !important;
+    font-size: 12.5px !important;
+    font-weight: 800 !important;
+    letter-spacing: -0.35px !important;
+    text-align: center !important;
+  }
+
+  #rosterTable th:nth-child(3),
+  #rosterTable td:nth-child(3) {
+    width: 15mm !important;
+    white-space: nowrap !important;
+    font-size: 6.5pt !important;
+    font-weight: 800 !important;
+    text-align: center !important;
+  }
+
+  #rosterTable th:nth-child(n+4),
+  #rosterTable td:nth-child(n+4) {
+    width: auto !important;
+    min-width: 0 !important;
+    padding: 0 !important;
+    white-space: nowrap !important;
+    font-size: 5.6pt !important;
+    font-weight: 800 !important;
+    text-align: center !important;
+  }
+
+  #rosterTable input,
+  #rosterTable select,
+  #rosterTable textarea,
+  .duty-input,
+  .duty-cell input {
+    width: 100% !important;
+    height: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    border: 0 !important;
+    box-shadow: none !important;
+    background: transparent !important;
+    text-align: center !important;
+    font: 800 7.5pt/1 Arial, sans-serif !important;
+  }
+
+  .print-legend,
+  .duty-legend,
+  .legend {
+    display: block !important;
+    width: 100% !important;
+    height: 5mm !important;
+    min-height: 5mm !important;
+    max-height: 5mm !important;
+    margin: 1.2mm 0 0 !important;
+    padding: 0 !important;
+    font-size: 5.5pt !important;
+    line-height: 1 !important;
+    overflow: visible !important;
+  }
+
+  .signature-row,
+  .signature-section,
+  .signatures,
+  .roster-signatures {
+    display: flex !important;
+    box-sizing: border-box !important;
+    width: 100% !important;
+    height: 13mm !important;
+    min-height: 13mm !important;
+    max-height: 13mm !important;
+    margin: 1mm 0 0 !important;
+    padding: 0 8mm !important;
+    justify-content: space-between !important;
+    align-items: flex-end !important;
+    overflow: visible !important;
+    break-inside: avoid !important;
+    page-break-inside: avoid !important;
+  }
+
+  .signature-box {
+    width: 55mm !important;
+    font-size: 5.5pt !important;
+    text-align: center !important;
+  }
+}
+
+
+/* SAIMS V6 — final staff-name fit override only */
+@media print {
+
+  #rosterTable th:nth-child(2),
+  #rosterTable td:nth-child(2) {
+    font-size: 11px !important;
+    letter-spacing: -0.45px !important;
+    padding-left: 0.25mm !important;
+    padding-right: 0.25mm !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: clip !important;
+  }
+}
+
+/* ===== FINAL RESPONSIVE APPLICATION LAYER ===== */
+* {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  min-width: 0;
+  overflow-x: hidden;
+}
+
+img,
+svg {
+  max-width: 100%;
+  height: auto;
+}
+
+table {
+  max-width: 100%;
+}
+
+.install-app-btn {
+  position: fixed;
+  right: 18px;
+  bottom: 18px;
+  z-index: 9999;
+  border: 0;
+  border-radius: 50% !important;
+  width: 48px !important;
+  height: 48px !important;
+  padding: 0 !important;
+  background: var(--primary) !important; /* Premium Emerald Green */
+  color: #fff !important;
+  font-size: 20px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  box-shadow: 0 8px 24px rgba(4, 120, 87, 0.25) !important;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1) !important;
+}
+
+.install-app-btn:hover {
+  background: var(--primary-hover) !important;
+  transform: translateY(-3px) scale(1.05) !important;
+  box-shadow: 0 12px 30px rgba(4, 120, 87, 0.4) !important;
+}
+
+.install-app-btn:active {
+  transform: translateY(1px) scale(0.95) !important;
+}
+
+.install-app-btn:focus-visible {
+  outline: 3px solid #7c3aed;
+  outline-offset: 3px;
+}
+
+@media (max-width: 900px) {
+
+  header,
+  .site-header,
+  .app-header {
+    height: auto !important;
+    min-height: 0 !important;
+  }
+
+  nav,
+  .nav-links,
+  .navbar {
+    flex-wrap: wrap !important;
+    gap: 8px !important;
+  }
+
+  .container,
+  main,
+  .content,
+  .page,
+  .card {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  .dashboard-grid,
+  .cards,
+  .card-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .controls,
+  .toolbar,
+  .action-bar,
+  .staff-controls,
+  .roster-controls {
+    flex-wrap: wrap !important;
+  }
+
+  input,
+  select,
+  button {
+    max-width: 100%;
+  }
+
+  .table-wrap,
+  .table-container,
+  .roster-table-wrap,
+  .roster-preview {
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch;
+  }
+}
+
+@media (max-width: 600px) {
+  body {
+    font-size: 15px;
+  }
+
+  header,
+  .site-header,
+  .app-header {
+    padding: 10px 12px !important;
+  }
+
+  nav,
+  .nav-links,
+  .navbar {
+    width: 100% !important;
+    justify-content: flex-start !important;
+  }
+
+  nav a,
+  .nav-links a,
+  .navbar a,
+  nav button {
+    font-size: 13px !important;
+  }
+
+  .container,
+  main,
+  .content,
+  .page {
+    padding-left: 10px !important;
+    padding-right: 10px !important;
+  }
+
+  .card {
+    padding: 14px !important;
+  }
+
+  .controls>*,
+  .toolbar>*,
+  .staff-controls>*,
+  .roster-controls>* {
+    flex: 1 1 100% !important;
+    width: 100% !important;
+  }
+
+  input,
+  select,
+  button {
+    min-height: 42px;
+  }
+
+  .install-app-btn {
+    right: 12px;
+    bottom: 12px;
+  }
+}
+
+
+
+
+
+
+/* ===== PRINT ROSTER — DOWNLOAD PDF MATCHING FORMAT (A3 LANDSCAPE) ===== */
+@media print {
+  @page {
+    size: A3 landscape !important;
+    margin: 7mm !important;
+  }
+
+  html,
+  body {
+    margin: 0 !important;
+    padding: 0 !important;
+    background: #fff !important;
+    overflow: visible !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  /* Hide the application UI, keep only the actual roster print area */
+  body > * {
+    display: none !important;
+  }
+
+  .multi-page-container {
+    display: block !important;
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  .multi-page-container > *:not(.roster-card) {
+    display: none !important;
+  }
+
+  .roster-card {
+    display: block !important;
+    border: 0 !important;
+    box-shadow: none !important;
+    background: transparent !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  #printArea {
+    display: block !important;
+    width: 100% !important;
+    max-width: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    border: 0 !important;
+    box-shadow: none !important;
+    overflow: visible !important;
+  }
+
+  #printArea * {
+    visibility: visible !important;
+  }
+
+  /* Header styles matching downloaded A3 PDF exactly */
+  .hospital-header {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 24px !important;
+    margin: 0 0 4mm 0 !important;
+    padding: 0 !important;
+    height: auto !important;
+    min-height: 0 !important;
+    max-height: none !important;
+  }
+
+  .hospital-header img {
+    max-height: 24mm !important; /* Matches PDF logo size */
+    width: auto !important;
+  }
+
+  .hospital-header h2 {
+    font-size: 15pt !important; /* Matches PDF HOSPITAL title size */
+    font-weight: bold !important;
+    margin: 0 !important;
+    line-height: 1.2 !important;
+    color: #000 !important;
+    text-align: center !important;
+  }
+
+  #printTitle {
+    font-size: 11pt !important; /* Matches PDF rosterTitle size */
+    font-weight: bold !important;
+    margin: 4px 0 0 0 !important;
+    line-height: 1.2 !important;
+    color: #000 !important;
+    text-align: center !important;
+  }
+
+  #printMonth {
+    font-size: 9pt !important; /* Matches PDF months header size */
+    font-weight: normal !important;
+    margin: 4px 0 0 0 !important;
+    line-height: 1.2 !important;
+    color: #000 !important;
+    text-align: center !important;
+  }
+
+  .roster-scroll {
+    display: block !important;
+    width: 100% !important;
+    max-width: none !important;
+    overflow: visible !important;
+  }
+
+  #rosterTable {
+    display: table !important;
+    width: 100% !important;
+    max-width: none !important;
+    table-layout: fixed !important;
+    border-collapse: collapse !important;
+    margin: 0 !important;
+  }
+
+  #rosterTable thead {
+    display: table-header-group !important;
+  }
+
+  #rosterTable tbody {
+    display: table-row-group !important;
+  }
+
+  #rosterTable tr {
+    display: table-row !important;
+    height: var(--print-row-height, 9.8mm) !important; /* Dynamic row height matching s.rowMm */
+  }
+
+  #rosterTable th,
+  #rosterTable td {
+    display: table-cell !important;
+    height: var(--print-row-height, 9.8mm) !important;
+    padding: var(--print-cell-padding, 0.7mm) 0.35mm !important; /* Dynamic cell padding matching s.paddingMm */
+    border: 0.35mm solid #0a0a0a !important; /* Matches PDF line weight and color */
+    vertical-align: middle !important;
+    text-align: center !important;
+    overflow: hidden !important;
+    color: #000 !important;
+    line-height: 1.1 !important;
+  }
+
+  /* Column 1: Sr. No */
+  #rosterTable th:nth-child(1),
+  #rosterTable td:nth-child(1) {
+    width: 2.2% !important;
+    min-width: 2.2% !important;
+    max-width: 2.2% !important;
+    font-size: 8.5pt !important;
+    font-weight: bold !important;
+  }
+
+  /* Column 2: Staff Name (Matches PDF body name styling: fontSize 13, centered) */
+  #rosterTable th:nth-child(2),
+  #rosterTable td:nth-child(2) {
+    width: 17.5% !important;
+    min-width: 17.5% !important;
+    max-width: 17.5% !important;
+    padding: 0 1.5mm !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: clip !important;
+    letter-spacing: -0.15px !important;
+  }
+
+  #rosterTable th:nth-child(2) {
+    font-size: 9.5pt !important;
+    font-weight: bold !important;
+  }
+
+  #rosterTable td:nth-child(2) {
+    font-size: 13pt !important;
+    font-weight: bold !important;
+    text-align: center !important;
+  }
+
+  /* Column 3: UNID NO (Matches PDF body ID styling: Math.min(s.idPt, 10.5)) */
+  #rosterTable th:nth-child(3),
+  #rosterTable td:nth-child(3) {
+    width: 4.9% !important;
+    min-width: 4.9% !important;
+    max-width: 4.9% !important;
+    white-space: nowrap !important;
+    font-weight: bold !important;
+    text-align: center !important;
+  }
+
+  #rosterTable th:nth-child(3) {
+    font-size: 8.5pt !important;
+  }
+
+  #rosterTable td:nth-child(3) {
+    font-size: 10.5pt !important;
+  }
+
+  /* Day/Date Columns: 2.55% each, sums up perfectly to A3 print width */
+  #rosterTable th:nth-child(n+4),
+  #rosterTable td:nth-child(n+4) {
+    width: 2.43% !important;
+    min-width: 2.43% !important;
+    max-width: 2.43% !important;
+    padding: 0 !important;
+    white-space: nowrap !important;
+  }
+
+  #rosterTable th:nth-child(n+4) {
+    font-size: 9.5pt !important;
+    font-weight: bold !important;
+  }
+
+  #rosterTable td:nth-child(n+4) {
+    font-size: 10.5pt !important;
+    font-weight: bold !important;
+  }
+
+  /* Input fields inside grid cells matching PDF duty cell size/boldness */
+  #rosterTable input,
+  #rosterTable select,
+  #rosterTable textarea {
+    width: 100% !important;
+    height: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    border: 0 !important;
+    box-shadow: none !important;
+    background: transparent !important;
+    text-align: center !important;
+    font: 800 10.5pt/1 Arial, sans-serif !important;
+    color: #000 !important;
+  }
+
+  /* Legend matching PDF spacing and font size */
+  #printLegend,
+  .print-legend {
+    display: block !important;
+    margin-top: 6mm !important;
+    padding: 0 !important;
+    font-size: 7.5pt !important;
+    line-height: 1.2 !important;
+    text-align: left !important;
+  }
+
+  /* Signature Row matching PDF spacing and layout */
+  .signature-row {
+    display: flex !important;
+    width: 100% !important;
+    justify-content: space-between !important;
+    align-items: flex-end !important;
+    margin-top: 15mm !important;
+    padding: 0 20mm !important;
+    break-inside: avoid !important;
+  }
+
+  .signature-box {
+    display: block !important;
+    width: 60mm !important;
+    text-align: center !important;
+    font-size: 8pt !important;
+    font-weight: bold !important;
+  }
+
+  .signature-line {
+    margin: 0 0 2mm 0 !important;
+    border-top: 0.35mm solid #282828 !important;
+  }
+
+  #printRosterBtn,
+  .no-print,
+  .install-app-btn {
+    display: none !important;
+  }
+}
+
+/* ===== INTERACTIVE SCREEN ANIMATIONS ===== */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulseGlow {
+  0% { box-shadow: 0 0 0 0 rgba(139, 30, 24, 0.4); }
+  70% { box-shadow: 0 0 0 10px rgba(139, 30, 24, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(139, 30, 24, 0); }
+}
+
+/* Page entrance animations */
+.multi-page-container {
+  animation: fadeInUp 0.45s cubic-bezier(0.25, 1, 0.5, 1) both;
+}
+
+/* Stagger entrance for layout cards */
+.container .card {
+  animation: fadeInUp 0.55s cubic-bezier(0.25, 1, 0.5, 1) both;
+}
+.container .card:nth-child(1) { animation-delay: 0.05s; }
+.container .card:nth-child(2) { animation-delay: 0.12s; }
+.container .card:nth-child(3) { animation-delay: 0.2s; }
+
+/* Dashboard Hero Card Hover Enhancements */
+.dash-card {
+  transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1), 
+              box-shadow 0.35s ease, 
+              border-color 0.35s ease, 
+              background 0.3s ease !important;
+}
+
+.dash-card:hover {
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: 0 16px 36px rgba(139, 30, 24, 0.12), 0 4px 12px rgba(0, 0, 0, 0.05);
+  border-color: #8b1e18 !important;
+  background: #fff8f8 !important;
+}
+
+/* Premium Navigation Hover Underlines */
+.main-nav a {
+  position: relative;
+  transition: color 0.25s ease, background-color 0.25s ease !important;
+}
+
+.main-nav a::after {
+  content: '';
+  position: absolute;
+  bottom: 2px;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background: #8b1e18;
+  border-radius: 2px;
+  transition: width 0.28s cubic-bezier(0.25, 1, 0.5, 1), 
+              left 0.28s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.main-nav a:hover::after {
+  width: 70%;
+  left: 15%;
+}
+
+/* Button Micro-Animations */
+button:not(.code-delete) {
+  transition: background-color 0.25s ease, 
+              transform 0.15s cubic-bezier(0.25, 1, 0.5, 1), 
+              box-shadow 0.25s ease !important;
+}
+
+button:not(.code-delete):hover {
+  background-color: #991f1f !important;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(153, 31, 31, 0.25);
+}
+
+button:not(.code-delete):active {
+  transform: translateY(1px);
+}
+
+button.secondary:hover {
+  background-color: #e4e8ec !important;
+  color: #172033 !important;
+  box-shadow: 0 5px 12px rgba(0, 0, 0, 0.08);
+}
+
+button.danger:hover {
+  background-color: #c9251a !important;
+  box-shadow: 0 6px 16px rgba(201, 37, 26, 0.3);
+}
+
+/* Input boxes & dropdown glow inside forms */
+input:focus,
+select:focus {
+  transition: border-color 0.25s ease, box-shadow 0.25s ease;
+  border-color: #8b1e18 !important;
+  box-shadow: 0 0 0 3px rgba(139, 30, 24, 0.15) !important;
+  outline: none;
+}
+
+/* Roster grid cell input focus pop and border ring */
+.roster input {
+  transition: background-color 0.2s ease, 
+              box-shadow 0.2s ease, 
+              transform 0.15s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.roster input:focus {
+  background-color: #fff !important;
+  box-shadow: inset 0 0 0 2px #8b1e18, 0 4px 10px rgba(139, 30, 24, 0.15) !important;
+  transform: scale(1.18);
+  border-radius: 4px;
+  z-index: 10;
+  position: relative;
+  outline: none;
+}
+
+/* Duty Code Chips Float */
+.compact-legend .chip {
+  transition: transform 0.25s cubic-bezier(0.25, 1, 0.5, 1), 
+              box-shadow 0.25s ease, 
+              border-color 0.25s ease !important;
+}
+
+.compact-legend .chip:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.06);
+  border-color: #b5bdc6 !important;
+}
+
+/* Login Page Entrance Animation */
+.hrb-login-card, .signin-card {
+  animation: fadeInUp 0.65s cubic-bezier(0.25, 1, 0.5, 1) both;
+}
+
+/* ===== MANAGE STAFF PAGE CLEANUP (ANTI-CLUTTER) ===== */
+body[data-page="staff"] .row {
+  margin-bottom: 24px !important;
+  gap: 14px !important;
+}
+
+body[data-page="staff"] #staffName {
+  flex-grow: 2 !important;
+  min-width: 260px !important;
+}
+
+body[data-page="staff"] #staffId {
+  flex-grow: 1 !important;
+  min-width: 180px !important;
+}
+
+body[data-page="staff"] .table-scroll.compact {
+  max-height: 620px !important; /* Larger display container */
+  border-radius: 14px !important;
+  border: 1px solid var(--border-light) !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02) !important;
+  background: #fff !important;
+}
+
+body[data-page="staff"] table {
+  border-collapse: separate !important;
+  border-spacing: 0 !important;
+  width: 100% !important;
+  border: 0 !important; /* Let container handle border */
+}
+
+body[data-page="staff"] th {
+  background: #f8faf9 !important; /* Sage white */
+  color: var(--primary-dark) !important;
+  font-weight: 800 !important;
+  text-transform: uppercase !important;
+  font-size: 12px !important;
+  letter-spacing: 0.8px !important;
+  padding: 16px 14px !important;
+  border-bottom: 2px solid var(--border-light) !important;
+  border-top: 0 !important;
+  border-left: 0 !important;
+  border-right: 0 !important;
+}
+
+body[data-page="staff"] td {
+  padding: 16px 14px !important;
+  border-bottom: 1px solid var(--border-light) !important;
+  border-top: 0 !important;
+  border-left: 0 !important;
+  border-right: 0 !important;
+  font-size: 14.5px !important;
+  color: var(--text-dark) !important;
+  vertical-align: middle !important;
+}
+
+/* Center and Bold Staff Name Column */
+body[data-page="staff"] th:nth-child(2),
+body[data-page="staff"] td:nth-child(2) {
+  text-align: center !important;
+}
+
+body[data-page="staff"] td:nth-child(2) {
+  font-weight: 700 !important; /* Make Name Bold */
+  color: #047857 !important; /* Forest emerald green for names */
+  font-size: 17px !important; /* Increased font-size for clarity */
+}
+
+body[data-page="staff"] tr:last-child td {
+  border-bottom: 0 !important;
+}
+
+body[data-page="staff"] tr:hover td {
+  background: rgba(4, 120, 87, 0.03) !important;
+}
+
+/* Align and premium padding for delete buttons */
+body[data-page="staff"] td button.danger {
+  padding: 8px 16px !important;
+  font-size: 13px !important;
+  border-radius: 8px !important;
+}
+
+/* Modern Login Page Custom Animations Keyframes */
+@keyframes slideInLeft {
+  from {
+    transform: translateX(-40px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes letterSpacingStretch {
+  from {
+    letter-spacing: -0.05em;
+    opacity: 0;
+  }
+  to {
+    letter-spacing: 0.2em;
+    opacity: 1;
+  }
+}
+
+/* Roster Table Zoom Pill Styles */
+.zoom-controls {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 4px !important;
+  background: #ffffff !important;
+  border: 1px solid var(--border) !important;
+  padding: 3px !important;
+  border-radius: 10px !important;
+  margin-left: auto !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05) !important;
+}
+
+.zoom-controls span {
+  font-size: 13px !important;
+  font-weight: 700 !important;
+  color: var(--text-dark) !important;
+  padding: 0 8px !important;
+  min-width: 48px !important;
+  text-align: center !important;
+}
+
+.zoom-controls button {
+  padding: 6px 10px !important;
+  font-size: 13px !important;
+  border: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  color: var(--primary) !important;
+  border-radius: 6px !important;
+  cursor: pointer !important;
+  margin: 0 !important;
+  transition: all 0.2s ease !important;
+}
+
+.zoom-controls button:hover {
+  background: var(--primary-light) !important;
+  color: var(--primary-hover) !important;
+}
+
+.zoom-controls button:active {
+  transform: scale(0.95) !important;
+}
+
+#rosterTable {
+  --roster-zoom: 1;
+  transform-origin: top left !important;
+}
+
+/* ===== ABOUT & SUPPORT PAGE STYLING ===== */
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin-top: 24px;
+}
+
+@media (max-width: 768px) {
+  .about-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.about-card {
+  background: #fdfdfd;
+  border: 1px solid var(--border-light);
+  border-radius: 12px;
+  padding: 20px;
+}
+
+.about-card h3 {
+  color: var(--primary);
+  margin-top: 0;
+  margin-bottom: 14px;
+  font-size: 18px;
+  border-bottom: 2px solid var(--accent);
+  padding-bottom: 8px;
+  display: inline-block;
+}
+
+.about-card ul {
+  margin: 0;
+  padding-left: 20px;
+}
+
+.about-card ul li {
+  margin-bottom: 12px;
+  line-height: 1.5;
+}
+
+.help-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+}
+
+.admin-profile {
+  margin: 14px 0;
+}
+
+.admin-profile strong {
+  display: block;
+  font-size: 20px;
+  color: var(--text-dark);
+}
+
+.admin-profile .designation {
+  font-size: 13.5px;
+  color: var(--text-muted);
+}
+
+.admin-contact-icons {
+  display: flex;
+  gap: 16px;
+  margin-top: 12px;
+}
+
+.contact-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff !important;
+  transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.contact-icon svg {
+  width: 20px;
+  height: 20px;
+  stroke: currentColor;
+}
+
+.contact-icon.email {
+  background: #2563eb;
+}
+.contact-icon.email:hover {
+  background: #1d4ed8;
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 8px 20px rgba(37, 99, 235, 0.3);
+}
+
+.contact-icon.call {
+  background: #059669;
+}
+.contact-icon.call:hover {
+  background: #047857;
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 8px 20px rgba(5, 150, 105, 0.3);
+}
+
+.contact-icon.whatsapp {
+  background: #16a34a;
+}
+.contact-icon.whatsapp svg {
+  stroke: none;
+}
+.contact-icon.whatsapp:hover {
+  background: #15803d;
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 8px 20px rgba(22, 163, 74, 0.3);
+}
+
+.passkey-btn:hover {
+  background-color: #1e293b !important;
+}
