@@ -1,0 +1,25 @@
+{
+  "rewrites": [
+    { "source": "/",                "destination": "/index.html" },
+    { "source": "/login",           "destination": "/login.html" },
+    { "source": "/staff",           "destination": "/staff.html" },
+    { "source": "/roster",          "destination": "/roster.html" },
+    { "source": "/history",         "destination": "/history.html" },
+    { "source": "/about",           "destination": "/about.html" },
+    { "source": "/create-password", "destination": "/create-password.html" }
+  ],
+  "headers": [
+    {
+      "source": "/(.*)\\.(html|css|js|svg)",
+      "headers": [
+        { "key": "Cache-Control", "value": "no-cache, no-store, must-revalidate" }
+      ]
+    },
+    {
+      "source": "/(.*)",
+      "headers": [
+        { "key": "X-Content-Type-Options", "value": "nosniff" }
+      ]
+    }
+  ]
+}
