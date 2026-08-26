@@ -1,9 +1,0 @@
-// Runtime Environment Configuration Template
-// Copy this file to "config.js" and fill in your Supabase project credentials.
-// IMPORTANT: Only use the Anon / Publishable key for frontend access.
-// NEVER include SUPABASE_SERVICE_ROLE_KEY or confidential secret keys here!
-
-window.__ENV__ = {
-  SUPABASE_URL: "https://your-project-id.supabase.co",
-  SUPABASE_ANON_KEY: "sb_publishable_your_anon_key_here"
-};
