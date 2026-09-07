@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <style>
+    html:not(.auth-ready) body {
+      visibility: hidden
+    }
+  </style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Create Roster</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="style.css?v=20260819-3">
+  <link rel="manifest" href="/manifest.webmanifest">
+  <meta name="theme-color" content="#047857">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="SAIMS Roster">
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="config.js"></script>
+  <script src="supabase-client.js"></script>
+  <script src="env-router.js"></script>
+  <script src="auth-guard.js?v=20260710-1"></script>
+  <link rel="icon" type="image/png" href="/icon-192.png">
+  <link rel="apple-touch-icon" href="/icon-192.png">
+</head>
+
+<body data-page="roster">
+  <header class="app-header">
+    <div class="header-left">
+      <a class="brand-link" href="/">
+        <span class="app-brand">
+          <img src="app-logo.svg?v=20260710-1" alt="Hospital Logo">
+          <span>Hospital Roster Builder</span>
+        </span>
+      </a>
+      <div class="header-datetime" id="liveDateTime">Loading date...</div>
+    </div>
+    <div class="header-right">
+      <button type="button" id="installAppBtn" class="install-app-btn" title="Install App" hidden>
+        <svg viewBox="0 0 24 24" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M12 3v13M7 11l5 5 5-5" />
+          <path d="M5 20h14" />
+        </svg>
+      </button>
+      <button type="button" class="hamburger-btn" id="menuToggleBtn" aria-label="Toggle navigation menu"
+        onclick="toggleSidebar(event)">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <div class="sidebar-backdrop" id="sidebarBackdrop" onclick="closeSidebar()"></div>
+
+  <aside class="sidebar-drawer" id="sidebarDrawer" aria-label="Main Navigation">
+    <div class="drawer-top">
+      <a class="brand-link" href="/">
+        <span class="app-brand">
+          <img src="app-logo.svg?v=20260710-1" alt="Hospital Logo">
+          <span>Hospital Roster Builder</span>
+        </span>
+      </a>
+      <button type="button" class="drawer-close-btn" id="drawerCloseBtn" aria-label="Close menu"
+        onclick="closeSidebar()">&times;</button>
+    </div>
+    <nav class="main-nav">
+      <a href="/">Dashboard</a>
+      <a href="/staff">Staff</a>
+      <a href="/roster" class="active">Create Roster</a>
+      <a href="/history">Previous Rosters</a>
+      <a href="/about">About</a>
+      <button type="button" class="nav-logout" onclick="logoutRosterUser()">Logout</button>
+    </nav>
+  </aside>
+  <main class="container multi-page-container">
+    <section class="card controls">
+      <div class="row">
+        <label>Roster Title
+          <input id="rosterTitle" value="NURSING DUTY ROSTER">
+        </label>
+        <label>Month
+          <select id="month"></select>
+        </label>
+        <label>Year
+          <input id="year" type="number" min="2020" max="2100">
+        </label>
+        <button onclick="buildRoster()">Create / Refresh Roster</button>
+      </div>
+    </section>
+    <section class="card duty-code-card">
+      <div class="section-head duty-code-head">
+        <h2>Duty Codes</h2>
+        <button class="secondary compact-btn" onclick="addDutyCode()">+ Add Code</button>
+      </div>
+      <div id="dutyLegend" class="legend compact-legend"></div>
+    </section>
+    <section class="card roster-card">
+      <div class="toolbar no-print">
+        <button onclick="saveRoster()">Save Roster</button>
+        <button class="secondary" onclick="printAdaptiveRoster()">Print Roster</button>
+        <button class="secondary" onclick="downloadPDF()">Download PDF</button>
+        <button class="secondary" onclick="sharePDF()">Share PDF</button>
+        <button class="secondary" onclick="downloadExcel()">Download Excel</button>
+
+        <!-- Roster Grid Zoom Controls -->
+        <div class="zoom-controls">
+          <button class="secondary btn-icon" onclick="adjustRosterZoom(-0.1)" title="Zoom Out"
+            type="button">🔍−</button>
+          <span id="zoomLevel">100%</span>
+          <button class="secondary btn-icon" onclick="adjustRosterZoom(0.1)" title="Zoom In" type="button">🔍+</button>
+          <button class="secondary btn-icon" onclick="resetRosterZoom()" title="Reset Zoom" type="button">🔄</button>
+        </div>
+      </div>
+
+      <div id="printArea">
+        <div class="hospital-header">
+          <img src="hospital-logo.jpg" alt="Hospital logo">
+          <div>
+            <h2>Jain Diwakar Sri Aurobindo Hospital, Ratlam</h2>
+            <h3 id="printTitle">NURSING DUTY ROSTER</h3>
+            <p id="printMonth"></p>
+          </div>
+        </div>
+        <div class="table-scroll roster-scroll">
+          <table id="rosterTable" class="roster"></table>
+        </div>
+        <div id="printLegend" class="print-legend"></div>
+        <div class="signature-row">
+          <div class="signature-box">
+            <div class="signature-line"></div>
+            <strong>Signature of Nursing Supt.</strong>
+          </div>
+          <div class="signature-box">
+            <div class="signature-line"></div>
+            <strong>Signature of Medical Supt.</strong>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/jspdf@2.5.1/dist/jspdf.umd.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jspdf-autotable@3.8.2/dist/jspdf.plugin.autotable.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
+  <script src="script.js?v=passkey2"></script>
+</body>
+
+</html>
