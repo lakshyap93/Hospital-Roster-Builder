@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <style>
+    html:not(.auth-ready) body {
+      visibility: hidden
+    }
+  </style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Manage Staff</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="style.css?v=20261001-28">
+  <link rel="manifest" href="/manifest.webmanifest">
+  <meta name="theme-color" content="#08785e">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="SAIMS Roster">
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="config.js"></script>
+  <script src="supabase-client.js"></script>
+  <script src="env-router.js"></script>
+  <script src="auth-guard.js?v=20261001-3"></script>
+  <link rel="icon" type="image/png" href="/icon-192.png">
+  <link rel="apple-touch-icon" href="/icon-192.png">
+</head>
+
+<body data-page="staff">
+  <header class="site-header app-header">
+    <a class="brand-link" href="/" aria-label="Hospital Roster Builder dashboard">
+      <img src="app-logo.svg" alt="">
+      <span>Hospital Roster Builder</span>
+    </a>
+    <div class="site-header-tools">
+      <div class="header-datetime" id="liveDateTime" aria-label="Current local date and time">Loading date…</div>
+      <button type="button" class="hamburger-btn" id="menuToggleBtn" aria-label="Open navigation menu" aria-controls="sidebarDrawer" aria-expanded="false" onclick="toggleSidebar(event)">Menu</button>
+    </div>
+  </header>
+  <div class="sidebar-backdrop" id="sidebarBackdrop" onclick="closeSidebar()"></div>
+  <aside class="sidebar-drawer" id="sidebarDrawer" aria-label="Main navigation">
+    <div class="drawer-top">
+      <span>Navigation</span>
+      <button type="button" class="drawer-close-btn" id="drawerCloseBtn" aria-label="Close menu" onclick="closeSidebar()">&times;</button>
+    </div>
+    <nav class="main-nav" aria-label="Main navigation">
+      <a href="/">Dashboard</a>
+      <a href="/staff" class="active" aria-current="page">Staff</a>
+      <a href="/roster">Create roster</a>
+      <a href="/history">Roster history</a>
+      <a href="/about">About</a>
+    </nav>
+    <button type="button" class="nav-logout" onclick="logoutRosterUser()">Sign out</button>
+  </aside>
+  <main class="container multi-page-container">
+    <section class="card">
+      <div class="section-head">
+        <div><h2>Add a team member</h2></div>
+      </div>
+      <div class="row">
+        <label class="staff-field"><span class="staff-field-label">Full name</span><input id="staffName" placeholder="e.g. Asha Sharma" autocomplete="off"></label>
+        <label class="staff-field"><span class="staff-field-label">Staff ID <span class="optional-label">Optional</span></span><input id="staffId" placeholder="Employee ID / UNID" autocomplete="off"></label>
+        <button type="button" class="staff-entry-submit" onclick="addStaff()">Add staff member</button>
+      </div>
+    </section>
+    <section class="card staff-list-card">
+      <div class="section-head">
+        <div><h2>Current staff</h2></div>
+        <span id="staffCount">0 staff</span>
+      </div>
+      <p id="emptyStaff" class="muted">No staff members yet. Add your first team member above.</p>
+      <div class="table-scroll compact">
+        <table>
+          <thead>
+            <tr>
+              <th>Sr.</th>
+              <th>Staff Name</th>
+              <th>UNID / ID</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody id="staffList"></tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+      <footer class="site-footer">
+    <div class="site-footer-columns">
+      <section class="footer-about"><a class="footer-brand" href="/"><span>Hospital Roster Builder</span></a><p>A simple workspace for organizing hospital staff and monthly duty schedules.</p><small>Plan shifts. Keep rosters clear. Find saved schedules when you need them.</small></section>
+      <nav class="footer-column" aria-label="Product"><h2>Product</h2><a href="/">Home</a><a href="/staff">Staff directory</a><a href="/roster">Create roster</a><a href="/history">Roster history</a><a href="/about">About</a></nav>
+      <nav class="footer-column" aria-label="Support"><h2>Support</h2><a href="/privacy">Privacy Policy</a><a href="/terms">Terms &amp; Conditions</a><a href="mailto:hospitalrosterbuilder@gmail.com">Email: hospitalrosterbuilder@gmail.com</a><a href="https://wa.me/918899227054" target="_blank" rel="noopener noreferrer">WhatsApp: 8899227054</a></nav>
+    </div>
+    <div class="site-footer-bottom"><span>© 2026 Hospital Roster Builder. All rights reserved.</span><span class="footer-credit">Designed &amp; Developed by <a class="footer-developer-link" href="https://www.linkedin.com/in/lakshya-purohit-b18936376/?isSelfProfile=true" target="_blank" rel="noopener noreferrer"><strong>Lakshya Purohit</strong></a></span><span>Monthly staff scheduling workspace</span></div>
+  </footer>
+  <script src="https://cdn.jsdelivr.net/npm/jspdf@2.5.1/dist/jspdf.umd.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jspdf-autotable@3.8.2/dist/jspdf.plugin.autotable.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
+  <script src="app-dialog.js?v=2"></script>
+  <script src="script.js?v=20261001-24"></script>
+  <script src="pwa-install.js?v=20261001-1"></script>
+</body>
+
+</html>
+
+
+
+
+
+
+
+
