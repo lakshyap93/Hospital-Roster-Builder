@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#08785e">
+  <meta name="description" content="Sign in to Hospital Roster Builder.">
+  <title>Sign in · Hospital Roster Builder</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css?v=20261002-5">
+  <link rel="manifest" href="/manifest.webmanifest">
+  <link rel="icon" type="image/png" href="/icon-192.png">
+  <link rel="apple-touch-icon" href="/icon-192.png">
+</head>
+<body class="hrb-login-page">
+  <header class="login-topbar">
+    <a class="brand-link" href="/" aria-label="Hospital Roster Builder home">
+      <img src="app-logo.svg" alt="">
+      <span>Hospital Roster Builder</span>
+    </a>
+    <button type="button" id="installAppBtn" class="install-app-btn" title="Install Hospital Roster Builder" hidden>
+      <svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M12 3v12m-5-5 5 5 5-5M5 20h14" />
+      </svg>
+      <span>Install app</span>
+    </button>
+  </header>
+
+  <main class="hrb-login-layout">
+    <section class="hrb-login-brand" aria-labelledby="loginBrandTitle">
+      <div class="hrb-brand-content">
+        <div class="hrb-brand-lockup">
+          <img src="app-logo.svg" alt="">
+          <div><strong>HOSPITAL</strong><span>ROSTER BUILDER</span></div>
+        </div>
+        <p class="hrb-tag">STAFF SCHEDULING WORKSPACE</p>
+        <h1 id="loginBrandTitle">A clearer way to plan <em>every shift.</em></h1>
+        <p class="hrb-copy">Build monthly duty rosters, manage your staff list, and keep previous schedules close at hand.</p>
+        <div class="login-preview" aria-hidden="true">
+          <div class="login-preview-top"><span>MONTHLY ROSTER</span><span class="login-preview-month">SEP <b>2026</b></span></div>
+          <div class="login-preview-grid"><span></span><span>M</span><span>T</span><span>W</span><span>T</span><span>F</span><span>S</span><b>AS</b><i class="fill-day"></i><i></i><i class="fill-night"></i><i></i><i class="fill-day"></i><i></i><b>RK</b><i class="fill-evening"></i><i class="fill-day"></i><i></i><i class="fill-evening"></i><i></i><i class="fill-night"></i><b>PM</b><i></i><i class="fill-night"></i><i class="fill-day"></i><i></i><i class="fill-evening"></i><i class="fill-day"></i></div>
+          <div class="login-preview-legend"><span><i class="legend-day"></i>Day</span><span><i class="legend-evening"></i>Evening</span><span><i class="legend-night"></i>Night</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="hrb-login-form-side" aria-labelledby="loginTitle">
+      <div class="hrb-login-card">
+        <p class="hrb-welcome">WELCOME BACK</p>
+        <h2 id="loginTitle">Sign in to continue</h2>
+        <p class="hrb-sub">Use the account provided by your administrator.</p>
+        <form id="loginForm">
+          <label for="loginEmail">Email address</label>
+          <div class="hrb-field">
+            <span aria-hidden="true">@</span>
+            <input id="loginEmail" name="email" type="email" autocomplete="username" required placeholder="name@hospital.com">
+          </div>
+          <label for="loginPassword">Password</label>
+          <div class="hrb-field">
+            <span aria-hidden="true">●</span>
+            <input id="loginPassword" name="password" type="password" autocomplete="current-password" required placeholder="Enter your password">
+            <button id="togglePassword" type="button" aria-label="Show password">Show</button>
+          </div>
+          <button id="loginButton" class="hrb-submit" type="submit">Sign in <span aria-hidden="true">→</span></button>
+          <p id="loginMessage" class="hrb-error" role="alert" aria-live="polite"></p>
+        </form>
+        <div class="hrb-secure"><span aria-hidden="true">●</span> Secure staff access</div>
+      </div>
+    </section>
+  </main>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="config.js"></script>
+  <script src="supabase-client.js"></script>
+  <script src="env-router.js"></script>
+  <script src="app-dialog.js?v=2"></script>
+  <script src="auth.js?v=20261001-5"></script>
+  <script src="pwa-install.js?v=20261001-1"></script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+

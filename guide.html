@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <style>html:not(.auth-ready) body{visibility:hidden}</style>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#08785e">
+  <meta name="description" content="A practical guide to managing staff, monthly rosters, leave, exports and daily WhatsApp duty messages.">
+  <title>Workspace Guide | Hospital Roster Builder</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css?v=20261002-5"><link rel="manifest" href="/manifest.webmanifest"><link rel="icon" type="image/png" href="/icon-192.png">
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script src="config.js"></script><script src="supabase-client.js"></script>
+  <script src="env-router.js?v=20261002-2"></script><script src="auth-guard.js?v=20261001-3"></script>
+</head>
+<body data-page="guide">
+  <header class="site-header app-header"><a class="brand-link" href="/" aria-label="Hospital Roster Builder dashboard"><img src="app-logo.svg" alt=""><span>Hospital Roster Builder</span></a><div class="site-header-tools"><div class="header-datetime" id="liveDateTime" aria-label="Current local date and time">Loading date…</div><button type="button" class="hamburger-btn" id="menuToggleBtn" aria-label="Open navigation menu" aria-controls="sidebarDrawer" aria-expanded="false" onclick="toggleSidebar(event)">Menu</button></div></header>
+  <div class="sidebar-backdrop" id="sidebarBackdrop" onclick="closeSidebar()"></div><aside class="sidebar-drawer" id="sidebarDrawer" aria-label="Main navigation">
+    <div class="drawer-top"><span>Navigation</span><button type="button" class="drawer-close-btn" id="drawerCloseBtn" aria-label="Close navigation menu" onclick="closeSidebar()">&times;</button></div>
+    <nav class="main-nav" aria-label="Main navigation"><a href="/">Dashboard</a><a href="/staff">Staff</a><a href="/roster">Create roster</a><a href="/history">Roster history</a><a href="/daily-message">Daily duty message</a><a href="/staff-leave">Staff leave</a></nav>
+    <button type="button" class="nav-logout" onclick="logoutRosterUser()">Sign out</button>
+  </aside>
+  <main class="container multi-page-container guide-page">
+    <section class="guide-hero"><div><span class="eyebrow">QUICK REFERENCE</span><h1>Workspace guide</h1><p>Follow this workflow to build a monthly roster, track leave, and prepare a daily duty message.</p><a class="guide-hero-link" href="/roster">Open roster builder <span aria-hidden="true">→</span></a></div><div class="guide-hero-stats"><div><strong>01</strong><span>Manage your staff</span></div><div><strong>02</strong><span>Plan shifts</span></div><div><strong>03</strong><span>Save and share</span></div></div></section>
+    <nav class="guide-jump-links" aria-label="Guide sections"><a href="#staff-guide">Staff</a><a href="#roster-guide">Rosters</a><a href="#keyboard-guide">Keyboard and rows</a><a href="#leave-guide">Leave</a><a href="#message-guide">Daily message</a><a href="#exports-guide">Print and export</a></nav>
+    <section class="guide-section" id="staff-guide"><div class="guide-section-marker">01</div><div><span class="eyebrow">STAFF DIRECTORY</span><h2>Keep the team list current</h2><p>Add each staff member’s name and, if needed, a UNID or employee ID. Use Edit to correct a name or ID, and Delete to remove someone from the active directory. Older saved rosters keep their staff snapshot for history.</p><a href="/staff">Open Staff directory →</a></div></section>
+    <section class="guide-section" id="roster-guide"><div class="guide-section-marker">02</div><div><span class="eyebrow">MONTHLY PLANNING</span><h2>Create one roster for each team or unit</h2><p>Choose or add a roster title, month and year. Add staff from the searchable directory; after selecting someone, focus returns to search for the next person. You can save separate rosters for the same month—for example, different wards or units.</p><p>Enter duty codes directly into each date cell. Built-in codes include M (Morning), E (Evening), N (Night), O (Off) and LE (Leave). You can use a combined code such as M/E when both component codes exist. Add a short staff subtitle, such as a unit or role, under a name; it appears in print/PDF and downloads.</p><a href="/roster">Open Create roster →</a></div></section>
+    <section class="guide-section" id="keyboard-guide"><div class="guide-section-marker">03</div><div><span class="eyebrow">KEYBOARD AND ROWS</span><h2>Enter duties without leaving the grid</h2><ul><li>Use Tab to move through fields. In the duty grid, the arrow keys move left/right between dates and up/down between staff rows.</li><li>Focus a duty cell and press Delete to clear just that shift. Focus the staff name cell and press Delete to clear all duties in that row.</li><li>Drag a staff row to change its order. Hold Ctrl while dragging to copy the row to another staff member.</li><li>Click a staff name and press Ctrl+C to copy that row’s duties; click the destination staff name and press Ctrl+V to paste.</li><li>Blank rows can hold a typed name, optional ID and duties. They are saved with the roster when the required database table is set up.</li></ul></div></section>
+    <section class="guide-section" id="leave-guide"><div class="guide-section-marker">04</div><div><span class="eyebrow">STAFF LEAVE</span><h2>Record a date or a date range once</h2><p>Select a staff member, choose Leave from and Leave through, and add an optional note. Saved leave automatically marks that staff member as LE on matching dates in their roster and in the daily message. Check leave dates before saving or sharing a final schedule.</p><a href="/staff-leave">Open Staff leave →</a></div></section>
+    <section class="guide-section" id="message-guide"><div class="guide-section-marker">05</div><div><span class="eyebrow">DAILY DUTY MESSAGE</span><h2>Merge every roster for a selected day</h2><p>Choose any date, then generate the message. The page combines the saved roster duties for that date across all rosters for the month. Edit the preview, copy it, or open WhatsApp with the prepared draft. WhatsApp does not send until you review and send it there.</p><a href="/daily-message">Open Daily duty message →</a></div></section>
+    <section class="guide-section" id="exports-guide"><div class="guide-section-marker">06</div><div><span class="eyebrow">PRINT AND EXPORT</span><h2>Use the format that suits the task</h2><p>From a roster, prepare the print layout or download PDF and Excel. Roster name, staff ID and subtitle are included. The Staff leave page has its own print and PDF actions for leave history. Roster history lets you reopen, review or delete saved schedules.</p><a href="/history">Open Roster history →</a></div></section>
+    <section class="guide-callout"><div><span class="eyebrow">ACCESS AND PRIVACY</span><h2>Use the shared workspace carefully</h2><p>This version has one signed-in shared workspace, not individual staff-only accounts. Signed-in users can access shared roster data. Use staff information only when authorized, keep notes minimal, and do not enter patient details. Sessions end automatically after six hours.</p><a href="/privacy">Read the Privacy Policy</a><a href="/terms">Read Terms &amp; Conditions</a></div></section>
+  </main>
+  <footer class="site-footer site-footer-compact">
+  <div class="footer-shell">
+    <section class="footer-brand-panel" aria-label="Hospital Roster Builder">
+      <a class="footer-brand-mark" href="/" aria-label="Hospital Roster Builder home"><img src="/app-logo.svg" alt=""><span>Hospital Roster Builder</span></a>
+      <p>Monthly staff scheduling, made clear.</p>
+      <span class="footer-brand-caption"><i></i> Plan · Organize · Share</span>
+    </section>
+    <nav class="footer-nav" aria-label="Explore">
+      <h2>Explore</h2>
+      <a href="/about">About</a><a href="/guide">Workspace guide</a><a href="/privacy">Privacy policy</a><a href="/terms">Terms &amp; conditions</a>
+    </nav>
+    <section class="footer-connect" aria-label="Contact and developer">
+      <h2>Contact</h2>
+      <a href="mailto:hospitalrosterbuilder@gmail.com"><span class="footer-contact-icon" aria-hidden="true">✉</span>hospitalrosterbuilder@gmail.com</a>
+      <a href="https://wa.me/918899227054" target="_blank" rel="noopener noreferrer"><span class="footer-contact-icon" aria-hidden="true">◉</span>WhatsApp · 8899227054</a>
+      <p class="footer-credit"><span>Designed &amp; Developed by</span><a class="footer-developer-link" href="https://www.linkedin.com/in/lakshya-purohit-b18936376/?isSelfProfile=true" target="_blank" rel="noopener noreferrer">Lakshya Purohit <span aria-hidden="true">↗</span></a></p>
+    </section>
+  </div>
+  <div class="site-footer-bottom"><span>© 2026 Hospital Roster Builder</span><span>Staff scheduling workspace</span></div>
+</footer>
+  <script src="app-dialog.js?v=2"></script><script src="script.js?v=20261002-8"></script>
+</body>
+</html>
+
