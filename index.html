@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <style>html:not(.auth-ready) body{visibility:hidden}</style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#08785e">
+  <meta name="description" content="Plan monthly hospital duty rosters, maintain staff and leave records, review saved schedules, and prepare daily duty messages.">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="Hospital Roster Builder">
+  <title>Dashboard | Hospital Roster Builder</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css?v=20261002-5">
+  <link rel="manifest" href="/manifest.webmanifest">
+  <link rel="icon" type="image/png" href="/icon-192.png">
+  <link rel="apple-touch-icon" href="/icon-192.png">
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="config.js"></script>
+  <script src="supabase-client.js"></script>
+  <script src="env-router.js?v=20261002-2"></script>
+  <script src="auth-guard.js?v=20261001-3"></script>
+</head>
+<body data-page="dashboard">
+  <header class="site-header app-header">
+    <a class="brand-link" href="/" aria-label="Hospital Roster Builder dashboard"><img src="app-logo.svg" alt=""><span>Hospital Roster Builder</span></a>
+    <div class="site-header-tools"><div class="header-datetime" id="liveDateTime" aria-label="Current local date and time">Loading date…</div><button type="button" class="hamburger-btn" id="menuToggleBtn" aria-label="Open navigation menu" aria-controls="sidebarDrawer" aria-expanded="false" onclick="toggleSidebar(event)">Menu</button></div>
+  </header>
+  <div class="sidebar-backdrop" id="sidebarBackdrop" onclick="closeSidebar()"></div>
+  <aside class="sidebar-drawer" id="sidebarDrawer" aria-label="Main navigation">
+    <div class="drawer-top"><span>Navigation</span><button type="button" class="drawer-close-btn" id="drawerCloseBtn" aria-label="Close menu" onclick="closeSidebar()">&times;</button></div>
+    <nav class="main-nav" aria-label="Main navigation">
+      <a href="/" class="active" aria-current="page">Dashboard</a><a href="/staff">Staff</a><a href="/roster">Create roster</a><a href="/history">Roster history</a><a href="/daily-message">Daily duty message</a><a href="/staff-leave">Staff leave</a>
+    </nav>
+    <button type="button" class="nav-logout" onclick="logoutRosterUser()">Sign out</button>
+  </aside>
+  <main class="container multi-page-container dashboard-page">
+    <section class="dashboard-welcome">
+      <div class="dashboard-welcome-copy">
+        <span class="eyebrow">YOUR STAFF SCHEDULING WORKSPACE</span>
+        <h1>Plan every shift<br>with a <em>clear view.</em></h1>
+        <p>Manage staff, build monthly duty rosters, record leave, and prepare a daily team message from one shared workspace.</p>
+        <a class="dashboard-primary-link" href="/roster"><span class="dashboard-cta-icon" aria-hidden="true">＋</span><span><strong>Create a duty roster</strong><small>Set up or continue a monthly plan</small></span><span class="dashboard-arrow" aria-hidden="true">↗</span></a>
+      </div>
+      <div class="dashboard-art" aria-label="Preview of roster duty codes">
+        <div class="dashboard-art-label"><span class="live-dot"></span> DUTY CODE PREVIEW <span>ROSTER</span></div>
+        <div class="mini-roster">
+          <div class="mini-roster-head"><div><small>MONTHLY DUTY PLAN</small><strong>Shift overview</strong></div><span class="mini-month">M <b>E · N</b></span></div>
+          <div class="mini-days"><span>DAY 01</span><span>DAY 02</span><span>DAY 03</span><span>DAY 04</span><span>DAY 05</span></div>
+          <div class="mini-staff"><span class="mini-avatar avatar-a">M</span><b>Morning</b><span class="shift-chip shift-green">M</span></div>
+          <div class="mini-staff"><span class="mini-avatar avatar-b">E</span><b>Evening</b><span class="shift-chip shift-blue">E</span></div>
+          <div class="mini-staff"><span class="mini-avatar avatar-c">N</span><b>Night / leave</b><span class="shift-chip shift-violet">N · LE</span></div>
+          <div class="mini-roster-foot"><span>Custom codes · Off days · Leave</span><span>● ● ●</span></div>
+        </div>
+        <div class="art-note"><span aria-hidden="true">✓</span><div><b>Plan, review, share</b><small>One workflow for each month</small></div></div>
+      </div>
+    </section>
+    <section class="dashboard-section-heading"><div><span class="eyebrow">WORKSPACE</span><h2>Go to a feature</h2></div><span>Choose a task to get started</span></section>
+    <section class="dashboard-grid" aria-label="Workspace features">
+      <a class="dash-card" href="/staff"><span class="dash-card-icon staff-icon" aria-hidden="true">♙</span><span class="dash-card-content"><strong>Staff directory</strong><small>Add staff, update names or IDs, and keep the active team list current.</small></span><span class="dash-card-arrow" aria-hidden="true">↗</span></a>
+      <a class="dash-card" href="/roster"><span class="dash-card-icon roster-icon" aria-hidden="true">▦</span><span class="dash-card-content"><strong>Create roster</strong><small>Plan shifts by date, use duty codes, add subtitles, and arrange staff rows.</small></span><span class="dash-card-arrow" aria-hidden="true">↗</span></a>
+      <a class="dash-card" href="/history"><span class="dash-card-icon history-icon" aria-hidden="true">▤</span><span class="dash-card-content"><strong>Roster history</strong><small>Reopen saved schedules, including separate rosters for the same month.</small></span><span class="dash-card-arrow" aria-hidden="true">↗</span></a>
+      <a class="dash-card" href="/staff-leave"><span class="dash-card-icon leave-icon" aria-hidden="true">◷</span><span class="dash-card-content"><strong>Staff leave</strong><small>Save leave dates and notes; matching roster days are marked LE.</small></span><span class="dash-card-arrow" aria-hidden="true">↗</span></a>
+      <a class="dash-card" href="/daily-message"><span class="dash-card-icon message-icon" aria-hidden="true">☏</span><span class="dash-card-content"><strong>Daily duty message</strong><small>Merge that date’s assignments from all saved rosters, edit, then share.</small></span><span class="dash-card-arrow" aria-hidden="true">↗</span></a>
+      <a class="dash-card" href="/guide"><span class="dash-card-icon guide-icon" aria-hidden="true">ⓘ</span><span class="dash-card-content"><strong>Workspace guide</strong><small>Read the workflow, shortcuts and feature notes.</small></span><span class="dash-card-arrow" aria-hidden="true">↗</span></a>
+    </section>
+  </main>
+  <footer class="site-footer site-footer-compact">
+  <div class="footer-shell">
+    <section class="footer-brand-panel" aria-label="Hospital Roster Builder">
+      <a class="footer-brand-mark" href="/" aria-label="Hospital Roster Builder home"><img src="/app-logo.svg" alt=""><span>Hospital Roster Builder</span></a>
+      <p>Monthly staff scheduling, made clear.</p>
+      <span class="footer-brand-caption"><i></i> Plan · Organize · Share</span>
+    </section>
+    <nav class="footer-nav" aria-label="Explore">
+      <h2>Explore</h2>
+      <a href="/about">About</a><a href="/guide">Workspace guide</a><a href="/privacy">Privacy policy</a><a href="/terms">Terms &amp; conditions</a>
+    </nav>
+    <section class="footer-connect" aria-label="Contact and developer">
+      <h2>Contact</h2>
+      <a href="mailto:hospitalrosterbuilder@gmail.com"><span class="footer-contact-icon" aria-hidden="true">✉</span>hospitalrosterbuilder@gmail.com</a>
+      <a href="https://wa.me/918899227054" target="_blank" rel="noopener noreferrer"><span class="footer-contact-icon" aria-hidden="true">◉</span>WhatsApp · 8899227054</a>
+      <p class="footer-credit"><span>Designed &amp; Developed by</span><a class="footer-developer-link" href="https://www.linkedin.com/in/lakshya-purohit-b18936376/?isSelfProfile=true" target="_blank" rel="noopener noreferrer">Lakshya Purohit <span aria-hidden="true">↗</span></a></p>
+    </section>
+  </div>
+  <div class="site-footer-bottom"><span>© 2026 Hospital Roster Builder</span><span>Staff scheduling workspace</span></div>
+</footer>
+  <script src="app-dialog.js?v=2"></script><script src="script.js?v=20261002-8"></script><script src="pwa-install.js?v=20261001-1"></script>
+</body>
+</html>
